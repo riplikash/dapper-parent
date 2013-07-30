@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init"
+	default-autowire="byType"
+
+	>
+	
+	<bean id="keyListener" name="keyListener"
+	class="com.dapper.engine.testImplementations.TestKeyListener"></bean>
+	
+	<bean id="controls"
+		class="com.dapper.engine.testImplementations.ControlInterfaceTest"
+		p:keyListener-ref="keyListener"
+		>
+	</bean>
+	
+	<bean id="gameEngine"
+		class="com.dapper.engine.testImplementations.GameEngineInterfaceTest">
+	</bean>
+	
+	<bean id="graphicsEngine"
+		class="com.dapper.engine.testImplementations.squareEngine"
+		p:windowTitle="Test Title"
+		p:windowWidth="800"
+		p:windowHeight="600"
+		p:FPS="60" 
+		>
+		<property name="scene">
+	
+		<list>
+			<value >-.8</value>
+			<value>-0.8</value>
+			<value>.2</value>
+			<value>.8</value>
+			<value>-.6</value>
+			<value>-.4</value>
+			<value>-.6</value>
+			<value>-.4</value>
+			<value>.6</value>
+			<value>.8</value>
+			<value>.8</value>
+			<value>.2</value>			
+		</list>
+	</property>
+		
+	</bean>	
+		
+	<bean id="testEngine"  class="com.dapper.engine.DapperEngine"
+
+	 >
+		
+	</bean>
+	
+
+
+</beans>
