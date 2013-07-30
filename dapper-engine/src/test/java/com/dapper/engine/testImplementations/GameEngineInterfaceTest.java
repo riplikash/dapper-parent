@@ -1,6 +1,5 @@
 package com.dapper.engine.testImplementations;
 
-import java.util.Iterator;
 import java.util.Queue;
 
 import javax.media.opengl.GLAutoDrawable;
@@ -8,39 +7,71 @@ import javax.media.opengl.GLAutoDrawable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.dapper.engine.data.default_implementations.DefaultScene;
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
-import com.dapper.engine.default_implementations.DefaultControlQueue;
+import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.math.SimpleColor;
+import com.dapper.engine.data.objects.DapperObject;
+import com.dapper.engine.data.objects.SimpleSquare;
+import com.jogamp.newt.event.KeyEvent;
+
+import static com.jogamp.newt.event.KeyEvent.*;
 @Component
 public class GameEngineInterfaceTest implements DapperGameEngineInterface {
 	@Autowired 
-	DefaultControlQueue controlQueue;
+	ControlInterfaceTest controlInterface;
+	
+	@Autowired
+	DefaultScene scene;
+
 	GameEngineInterfaceTest() {
 
 		System.out.println("Constructing game engine");
-		size = 0;
+	
 	}
-	int size;
+	
 	@Override
 	public void update() {
-		if (size != controlQueue.size())
-		{			
-			size = controlQueue.size();
-			Iterator itr = controlQueue.iterator();
-			System.out.print("{");
-			while (itr.hasNext()) {
-				System.out.print(itr.next());
-				itr.remove();
-				if (itr.hasNext()) System.out.print(", ");
-			}
-			System.out.print("}\n");
+		Queue<Short> queue = controlInterface.getCommands();
+		while (queue.size() > 0)
+		{
+			switch (queue.remove())
+            {
+                case KeyEvent.VK_UP:
+                	System.out.println("Moving up");
+                	player.move(0,1);
+                    break;
+                case VK_DOWN:
+                	player.move(0,-1);
+                    break;
+                case VK_LEFT:
+                	player.move(-1,0);
+                   
+                    break;
+                case VK_RIGHT:
+                   player.move(1,0);
+                    break;
+                case VK_ESCAPE:
+
+                    break;
+
+
+            }
 		}
-		
 	}
+	
+
+
+	DapperObject player;
 
 	@Override
 	public void init() {
 		System.out.println("initializing game engine");
-		
+		player = new DapperObject();
+		player.id = 0;
+		Point2D Translation = new Point2D(1,1);
+		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);
+		scene.add(player);
 	}
 
 	@Override

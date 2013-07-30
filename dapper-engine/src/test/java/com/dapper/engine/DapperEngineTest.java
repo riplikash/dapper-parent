@@ -9,15 +9,13 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=SimpleConfiguration.class,
-	loader=AnnotationConfigContextLoader.class
-	)
-
+	loader=AnnotationConfigContextLoader.class)
 public class DapperEngineTest {
 	@Autowired
 	DapperEngine dEngine;
 
 	@Test
-	public void simpleTest() {
+	public void simpleInteractiveTest() {
 		dEngine.start();
 		while (true) { }
 		

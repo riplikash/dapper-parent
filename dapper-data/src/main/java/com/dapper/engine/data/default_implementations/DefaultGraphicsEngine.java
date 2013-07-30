@@ -1,4 +1,4 @@
-package com.dapper.engine.default_implementations;
+package com.dapper.engine.data.default_implementations;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;

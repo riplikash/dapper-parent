@@ -10,7 +10,7 @@ import javax.media.opengl.GLAutoDrawable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.dapper.engine.default_implementations.DefaultGraphicsEngine;
+import com.dapper.engine.data.default_implementations.DefaultGraphicsEngine;
 
 public class SimpleGraphicsEngine extends DefaultGraphicsEngine {
 
@@ -26,8 +26,9 @@ public class SimpleGraphicsEngine extends DefaultGraphicsEngine {
 	}
 	@Override
 	public void render(GLAutoDrawable drawable) {
-	
+			
 			GL2 gl = drawable.getGL().getGL2();
+			gl.glClear(GL.GL_COLOR_BUFFER_BIT);
 			Iterator itr = scene.iterator();
 			while (itr.hasNext()) {
 				float a = (float)itr.next();
@@ -36,10 +37,6 @@ public class SimpleGraphicsEngine extends DefaultGraphicsEngine {
 
 				triangle(a, b, c, gl);
 			}
-//		    triangle((float)-.8, (float)-0.8, (float) 0.2, gl);
-//		    triangle((float).8, (float)-0.6, (float) 0.4, gl);
-//		    triangle((float)-.6, (float)-0.4, (float) 0.6, gl);
-//		    triangle((float).8, (float)0.8, (float) 0.2, gl);
 		   
 	}
 

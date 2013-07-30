@@ -31,6 +31,9 @@ public class DapperEngine implements GLEventListener {
 	
 	public void start() {
 		System.out.println("Starting dapper engine");
+		gameEngine.init();
+		graphicsEngine.init();
+		controls.init();
 		gameEngine.start();
 		graphicsEngine.start();		
 	

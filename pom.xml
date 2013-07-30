@@ -98,6 +98,7 @@
   <module>dapper-engine</module>
   
   
+    <module>a-star</module>
   </modules>
   <groupId>com.dapper</groupId>
 </project>
