@@ -8,12 +8,12 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.dapper.engine.default_implementations.DefaultGraphicsEngine;
 
-public class squareEngine extends DefaultGraphicsEngine {
+public class SimpleGraphicsEngine extends DefaultGraphicsEngine {
 
-	@Autowired
 	List<Float> scene;
 	public List<Float> getScene() {
 		return scene;
@@ -21,7 +21,7 @@ public class squareEngine extends DefaultGraphicsEngine {
 	public void setScene(List<Float> scene) {
 		this.scene = scene;
 	}
-	public squareEngine() {
+	public SimpleGraphicsEngine() {
 		super();
 	}
 	@Override
@@ -33,7 +33,7 @@ public class squareEngine extends DefaultGraphicsEngine {
 				float a = (float)itr.next();
 				float b = (float)itr.next();
 				float c = (float)itr.next();
-				System.out.println(a + " " + b + " " + c);
+
 				triangle(a, b, c, gl);
 			}
 //		    triangle((float)-.8, (float)-0.8, (float) 0.2, gl);

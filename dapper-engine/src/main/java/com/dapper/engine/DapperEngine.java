@@ -6,6 +6,7 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.interfaces.DapperControlInterface;
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
@@ -14,7 +15,7 @@ import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.util.FPSAnimator;
-
+@Component
 public class DapperEngine implements GLEventListener {
 	@Autowired
 	DapperControlInterface controls;
@@ -60,25 +61,6 @@ public class DapperEngine implements GLEventListener {
 		gameEngine.reshape(drawable, x, y, width, height);
 		controls.reshape(drawable, x, y, width, height);
 	}
-	public DapperControlInterface getControls() {
-		return controls;
-	}
-	public void setControls(DapperControlInterface controls) {
-		this.controls = controls;
-	}
-	public DapperGraphicsEngineInterface getGraphicsEngine() {
-		return graphicsEngine;
-	}
-	public void setGraphicsEngine(DapperGraphicsEngineInterface graphicsEngine) {
-		this.graphicsEngine = graphicsEngine;
-	}
-	public DapperGameEngineInterface getGameEngine() {
-		return gameEngine;
-	}
-	public void setGameEngine(DapperGameEngineInterface gameEngine) {
-		this.gameEngine = gameEngine;
-	}
-
 	
 
 }

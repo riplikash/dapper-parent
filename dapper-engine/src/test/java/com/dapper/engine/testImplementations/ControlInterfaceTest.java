@@ -3,22 +3,15 @@ package com.dapper.engine.testImplementations;
 import javax.media.opengl.GLAutoDrawable;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.interfaces.DapperControlInterface;
-import com.dapper.engine.default_implementations.DefaultControlQueue;
+import com.dapper.engine.default_implementations.DefaultKeyListener;
 
+@Component
 public class ControlInterfaceTest implements DapperControlInterface {
 	@Autowired
-	TestKeyListener keyListener;
-
-	
-	public TestKeyListener getKeyListener() {
-		return keyListener;
-	}
-	
-	public void setKeyListener(TestKeyListener keyListener) {
-		this.keyListener = keyListener;
-	}
+	DefaultKeyListener keyListener;
 
 	ControlInterfaceTest() {
 		super();

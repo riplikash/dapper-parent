@@ -8,6 +8,7 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.DapperEngineSettings;
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
@@ -19,25 +20,15 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Autowired
-	GLEventListener eventListener;
+	GLEventListener dapperEngine;
 	@Autowired
 	KeyListener keyListener;
+	
 	int FPS;
 	int windowWidth;
 	int windowHeight;
 	String windowTitle;
-	 public GLEventListener getEventListener() {
-		return eventListener;
-	}
-	public void setEventListener(GLEventListener eventListener) {
-		this.eventListener = eventListener;
-	}
-	public KeyListener getKeyListener() {
-		return keyListener;
-	}
-	public void setKeyListener(KeyListener keyListener) {
-		this.keyListener = keyListener;
-	}
+	
 	GLWindow glWindow;
      FPSAnimator fpsAnimator;
      
@@ -73,7 +64,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
             };
         });
 
-        glWindow.addGLEventListener(eventListener);
+        glWindow.addGLEventListener(dapperEngine);
         glWindow.addKeyListener(keyListener);
         glWindow.setTitle(windowTitle);
         glWindow.setSize(windowWidth, windowHeight);

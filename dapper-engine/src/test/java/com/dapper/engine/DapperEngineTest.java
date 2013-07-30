@@ -1,30 +1,23 @@
 package com.dapper.engine;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes=SimpleConfiguration.class,
+	loader=AnnotationConfigContextLoader.class
+	)
 
 public class DapperEngineTest {
-
+	@Autowired
 	DapperEngine dEngine;
-	
-	@Test
-	public void testStart() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("testSpring.xml");
-		dEngine = (DapperEngine) ctx.getBean("testEngine");
-		System.out.println("Starting test");
-		dEngine.start();
-		while (true) { }
-		
-	}
 
 	@Test
-	public void squareTest() {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("squareTest.xml");
-		dEngine = (DapperEngine) ctx.getBean("testEngine");
-		System.out.println("Starting test");
+	public void simpleTest() {
 		dEngine.start();
 		while (true) { }
 		
