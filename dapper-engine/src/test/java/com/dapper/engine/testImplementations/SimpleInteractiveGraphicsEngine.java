@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dapper.engine.data.objects.DapperObject;
 import com.dapper.engine.data.objects.SimpleShape;
-import com.dapper.engine.data.default_implementations.DefaultGraphicsEngine;
-import com.dapper.engine.data.default_implementations.DefaultScene;
 import com.dapper.engine.data.math.*;
+import com.dapper.engine.default_implementations.DefaultGraphicsEngine;
+import com.dapper.engine.default_implementations.DefaultScene;
 
 public class SimpleInteractiveGraphicsEngine extends DefaultGraphicsEngine{
 	@Autowired

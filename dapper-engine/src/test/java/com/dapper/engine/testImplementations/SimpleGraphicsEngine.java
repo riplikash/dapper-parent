@@ -10,7 +10,7 @@ import javax.media.opengl.GLAutoDrawable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.dapper.engine.data.default_implementations.DefaultGraphicsEngine;
+import com.dapper.engine.default_implementations.DefaultGraphicsEngine;
 
 public class SimpleGraphicsEngine extends DefaultGraphicsEngine {
 

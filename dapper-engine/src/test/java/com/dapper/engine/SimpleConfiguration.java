@@ -11,19 +11,18 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.dapper.engine.testImplementations.SimpleGraphicsEngine;
+import com.dapper.engine.testImplementations.SimpleInteractiveGraphicsEngine;
 
 @Configuration
 @ComponentScan({"com.dapper.engine"})
 public class SimpleConfiguration {
 	@Bean
-	public SimpleGraphicsEngine dapperGraphicsEngine() {
-		SimpleGraphicsEngine engine = new SimpleGraphicsEngine();
-		List<Float> list = Arrays.asList((float)-.8, (float) -.8, (float) .2, (float) .8, (float) -.6, (float) -.4, (float) -.6, (float) -.4, (float) .6, (float) .8, (float) .8, (float) .2 );
+	public SimpleInteractiveGraphicsEngine dapperGraphicsEngine() {
+		SimpleInteractiveGraphicsEngine engine = new SimpleInteractiveGraphicsEngine();		
 		engine.setFPS(60);
 		engine.setWindowHeight(600);
 		engine.setWindowWidth(800);
 		engine.setWindowTitle("Simple Title");
-		engine.setScene(list);
 		return engine;
 		
 

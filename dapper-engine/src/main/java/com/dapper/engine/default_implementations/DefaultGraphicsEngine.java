@@ -1,4 +1,6 @@
-package com.dapper.engine.data.default_implementations;
+package com.dapper.engine.default_implementations;
+
+import java.util.List;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
@@ -12,6 +14,9 @@ import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.DapperEngineSettings;
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
+import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.objects.DapperObject;
+import com.dapper.engine.data.objects.SimpleShape;
 import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
@@ -23,6 +28,10 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	GLEventListener dapperEngine;
 	@Autowired
 	KeyListener keyListener;
+	@Autowired
+	DefaultScene scene;
+	
+	GL2 gl;
 	
 	int FPS;
 	int windowWidth;
@@ -82,18 +91,22 @@ System.out.println("reshaping");
 	}
 	@Override
 	public void render(GLAutoDrawable drawable) {
-		System.out.println("Rendering something");
-			GL2 gl = drawable.getGL().getGL2();
-		    
-		    // draw a triangle filling the window
-		    gl.glBegin(GL.GL_TRIANGLES);
-		    gl.glColor3f(1, 0, 0);
-		    gl.glVertex2f(-1, -1);
-		    gl.glColor3f(0, 1, 0);
-		    gl.glVertex2f(0, 1);
-		    gl.glColor3f(0, 0, 1);
-		    gl.glVertex2f(1, -1);
-		    gl.glEnd();	
+		gl = drawable.getGL().getGL2();
+		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+		for (DapperObject obj: scene.getDisplayScene())
+		{
+			renderObject(obj.shape);
+		}
+	}
+
+	private void renderObject(SimpleShape object) {
+	    gl.glBegin(GL.GL_TRIANGLES);
+        List<Point2D> displayList = object.getDisplayList();
+        for (Point2D point : displayList){
+            gl.glColor3d(point.getRed(), point.getGreen(), point.getBlue());
+            gl.glVertex2d(point.getX(), point.getY());
+        }
+        gl.glEnd();
 	}
 	
 	public int getFPS() {

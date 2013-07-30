@@ -1,4 +1,4 @@
-package com.dapper.engine.testImplementations;
+package com.dapper.engine.default_implementations;
 
 import java.util.Queue;
 
@@ -18,14 +18,14 @@ import com.jogamp.newt.event.KeyEvent;
 
 import static com.jogamp.newt.event.KeyEvent.*;
 @Component
-public class GameEngineInterfaceTest implements DapperGameEngineInterface {
+public class DefaultGameEngine implements DapperGameEngineInterface {
 	@Autowired 
 	DefaultControlInterface controlInterface;
 	
 	@Autowired
 	DefaultScene scene;
 
-	GameEngineInterfaceTest() {
+	DefaultGameEngine() {
 
 		System.out.println("Constructing game engine");
 	
@@ -39,18 +39,17 @@ public class GameEngineInterfaceTest implements DapperGameEngineInterface {
 			switch (queue.remove())
             {
                 case KeyEvent.VK_UP:
-                	System.out.println("Moving up");
-                	player.move(0,1);
+                	System.out.println("up");                	
                     break;
                 case VK_DOWN:
-                	player.move(0,-1);
+                	System.out.println("down");
                     break;
                 case VK_LEFT:
-                	player.move(-1,0);
+                	System.out.println("left");
                    
                     break;
                 case VK_RIGHT:
-                   player.move(1,0);
+                   System.out.println("right");
                     break;
                 case VK_ESCAPE:
 
@@ -63,12 +62,12 @@ public class GameEngineInterfaceTest implements DapperGameEngineInterface {
 	
 
 
-	DapperObject player;
+	
 
 	@Override
 	public void init() {
 		System.out.println("initializing game engine");
-		player = new DapperObject();
+		DapperObject player = new DapperObject();
 		player.id = 0;
 		Point2D Translation = new Point2D(1,1);
 		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);

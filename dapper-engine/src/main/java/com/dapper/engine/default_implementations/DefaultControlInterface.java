@@ -1,4 +1,4 @@
-package com.dapper.engine.testImplementations;
+package com.dapper.engine.default_implementations;
 
 import static com.jogamp.newt.event.KeyEvent.VK_A;
 import static com.jogamp.newt.event.KeyEvent.VK_D;
@@ -21,15 +21,13 @@ import javax.media.opengl.GLAutoDrawable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.dapper.engine.data.default_implementations.DefaultKeyListener;
-import com.dapper.engine.data.default_implementations.DefaultScene;
 import com.dapper.engine.data.interfaces.DapperControlInterface;
 
 @Component
-public class ControlInterfaceTest implements DapperControlInterface {
+public class DefaultControlInterface implements DapperControlInterface {
 	volatile Queue<Short> commandQueue;
 	
-	ControlInterfaceTest() {
+	DefaultControlInterface() {
 		super();
 		commandQueue = new LinkedList<Short>();
 		System.out.println("Constructing control interface");
