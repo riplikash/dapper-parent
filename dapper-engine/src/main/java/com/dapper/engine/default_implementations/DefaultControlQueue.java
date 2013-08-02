@@ -7,7 +7,7 @@ import java.util.Queue;
 import org.springframework.stereotype.Component;
 @Component
 public class DefaultControlQueue {
-	Queue<Short> controlQueue;
+	public Queue<Short> controlQueue;
 	public DefaultControlQueue()
 	{
 		controlQueue = new LinkedList<Short>();

@@ -18,6 +18,7 @@ import com.dapper.engine.data.math.Point2D;
 import com.dapper.engine.data.objects.DapperObject;
 import com.dapper.engine.data.objects.SimpleShape;
 import com.jogamp.newt.event.KeyListener;
+import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
@@ -25,21 +26,26 @@ import com.jogamp.opengl.util.FPSAnimator;
 
 public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Autowired
+	public 
 	GLEventListener dapperEngine;
 	@Autowired
+	public 
 	KeyListener keyListener;
 	@Autowired
-	DefaultScene scene;
+	public MouseListener mouseListener;
+	@Autowired
+	public DefaultScene scene;
 	
-	GL2 gl;
+	protected GL2 gl;
 	
-	int FPS;
-	int windowWidth;
-	int windowHeight;
-	String windowTitle;
+	protected int FPS;
+	protected int windowWidth;
+	protected int windowHeight;
+	protected String windowTitle;
 	
-	GLWindow glWindow;
-     FPSAnimator fpsAnimator;
+	protected GLWindow glWindow;
+    protected FPSAnimator fpsAnimator;
+	
      
     public DefaultGraphicsEngine() {    	 
  		super();
@@ -75,6 +81,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 
         glWindow.addGLEventListener(dapperEngine);
         glWindow.addKeyListener(keyListener);
+        glWindow.addMouseListener(mouseListener);
         glWindow.setTitle(windowTitle);
         glWindow.setSize(windowWidth, windowHeight);
 
@@ -86,7 +93,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
-System.out.println("reshaping");
+			System.out.println("reshaping");
 		
 	}
 	@Override
@@ -99,11 +106,11 @@ System.out.println("reshaping");
 		}
 	}
 
-	private void renderObject(SimpleShape object) {
+	protected void renderObject(SimpleShape object) {
 	    gl.glBegin(GL.GL_TRIANGLES);
         List<Point2D> displayList = object.getDisplayList();
-        for (Point2D point : displayList){
-            gl.glColor3d(point.getRed(), point.getGreen(), point.getBlue());
+        gl.glColor3d(object.color.getRed(), object.color.getGreen(), object.color.getBlue());
+        for (Point2D point : displayList){            
             gl.glVertex2d(point.getX(), point.getY());
         }
         gl.glEnd();
@@ -133,6 +140,7 @@ System.out.println("reshaping");
 	public void setWindowTitle(String windowTitle) {
 		this.windowTitle = windowTitle;
 	}
+	@Override
 	public GLWindow getGlWindow() {
 		return glWindow;
 	}
@@ -145,5 +153,6 @@ System.out.println("reshaping");
 	public void setFpsAnimator(FPSAnimator fpsAnimator) {
 		this.fpsAnimator = fpsAnimator;
 	}
+
 
 }

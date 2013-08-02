@@ -14,16 +14,29 @@ import com.dapper.engine.data.math.SimpleColor;
  * To change this template use File | Settings | File Templates.
  */
 public class SimpleSquare extends SimpleShape{
+	public SimpleSquare() {};
+    public SimpleSquare(Point2D translation, Point2D scale)
+    {
+        super(translation, scale);
+        points = new ArrayList<Point2D>();
+        points.add(new Point2D(0, 0));
+        points.add(new Point2D(1, 0));
+        points.add(new Point2D(0, -1));
+
+        points.add(new Point2D(0, -1));
+        points.add(new Point2D(1, 0));
+        points.add(new Point2D(1, -1));
+    }
     public SimpleSquare(Point2D translation, Point2D scale, SimpleColor color)
     {
         super(translation, scale, color);
         points = new ArrayList<Point2D>();
-        points.add(new Point2D(-1, 1, color));
-        points.add(new Point2D(1, 1, color));
-        points.add(new Point2D(-1, -1, color));
+        points.add(new Point2D(0, 0, color));
+        points.add(new Point2D(1, 0, color));
+        points.add(new Point2D(0,-1, color));
 
-        points.add(new Point2D(-1, -1, color));
-        points.add(new Point2D(1, 1, color));
+        points.add(new Point2D(0, -1, color));
+        points.add(new Point2D(1, 0, color));
         points.add(new Point2D(1, -1, color));
     }
 

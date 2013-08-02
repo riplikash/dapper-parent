@@ -16,8 +16,8 @@ public class DapperObject {
 	public List<Point2D> getDisplayList() {
 		return shape.getDisplayList();
 	}
-	public void move(int xMove, int yMove) {
-		this.shape.translation.add((double)xMove, (double)yMove);
+	public void move(double xMove, double yMove) {
+		this.shape.translation.add(xMove, yMove);
 		
 		
 	}

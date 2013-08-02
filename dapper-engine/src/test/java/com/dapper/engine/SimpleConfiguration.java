@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.dapper.engine.testImplementations.SimpleGraphicsEngine;
+import com.dapper.engine.testImplementations.GameEngineInterfaceTest;
 import com.dapper.engine.testImplementations.SimpleInteractiveGraphicsEngine;
 
 @Configuration
@@ -27,6 +27,11 @@ public class SimpleConfiguration {
 		
 
 		
+	}
+	
+	@Bean
+	public GameEngineInterfaceTest gameEngine() { 
+		return new GameEngineInterfaceTest();
 	}
 
 }

@@ -16,9 +16,17 @@ import com.dapper.engine.data.math.*;
 public abstract class SimpleShape {
     ArrayList<Point2D> points;
     public Point2D translation;
-    Point2D scaleVar;
-    double rotationVar;
-    SimpleColor color;
+    public Point2D scaleVar;
+    public double rotationVar;
+    public SimpleColor color;
+    
+    public SimpleShape(Point2D translation, Point2D scaleVar)
+    {
+        this.translation = translation;
+        this.scaleVar = scaleVar;
+        this.color = null;
+        this.rotationVar = 0;
+    }
 
     public SimpleShape(Point2D translation, Point2D scaleVar, SimpleColor color)
     {

@@ -14,7 +14,7 @@ import com.dapper.engine.data.objects.SimpleShape;
 @Component
 public class DefaultScene {
 	public Map<Integer, DapperObject> sceneContents;	
-	DefaultScene() {
+	public DefaultScene() {
 		sceneContents = new HashMap<Integer, DapperObject>();
 	}
 	

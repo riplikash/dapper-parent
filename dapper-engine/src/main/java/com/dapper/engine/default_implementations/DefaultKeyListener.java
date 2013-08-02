@@ -13,13 +13,13 @@ import com.jogamp.newt.event.KeyListener;
 public class DefaultKeyListener implements KeyListener {
 	@Autowired
 	DapperControlInterface controlInterface;
-	DefaultKeyListener() {
+	public DefaultKeyListener() {
 		
 	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		controlInterface.addCommand(e.getKeyCode());
+		controlInterface.addCommand(e);
 	}
 
 	@Override

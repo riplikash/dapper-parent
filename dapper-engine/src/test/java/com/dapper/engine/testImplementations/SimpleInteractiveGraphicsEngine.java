@@ -36,7 +36,7 @@ public class SimpleInteractiveGraphicsEngine extends DefaultGraphicsEngine{
 		}
 	}
 
-	private void renderObject(SimpleShape object) {
+	protected void renderObject(SimpleShape object) {
 	    gl.glBegin(GL.GL_TRIANGLES);
         List<Point2D> displayList = object.getDisplayList();
         for (Point2D point : displayList){

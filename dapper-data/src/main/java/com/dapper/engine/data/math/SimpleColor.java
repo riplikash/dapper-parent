@@ -49,4 +49,5 @@ public class SimpleColor extends Vector4D{
     public double getAlpha() {
         return (D * 255);
     }
+    
 }
