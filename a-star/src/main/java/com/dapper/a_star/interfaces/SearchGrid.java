@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.math.Point2D;
 import com.dapper.engine.data.math.SimpleColor;
+import com.dapper.engine.data.objects.SimpleFont;
 import com.dapper.engine.data.objects.SimpleSquare;
 import com.dapper.engine.default_implementations.DefaultScene;
 
@@ -29,13 +30,15 @@ public class SearchGrid {
 			for (double x = 0; x < 10; x++)
 			{
 				
-				getCoord(x);
-				getCoord(y);
-				
 				tGraphic = new SimpleSquare(new Point2D(getCoord(x), getCoord(y) * -1), new Point2D(.18, .18), SimpleColor.BLUE);
 				square = new GridSquare(1, tGraphic, (int)(x * 10 + y));
 				grid[(int)x][(int)y] = square;
 				scene.add(square);
+				String s = "(" + new Double(x).toString().charAt(0) + "," + new Double(y).toString().charAt(0) + ")";
+				
+				SimpleFont string = new SimpleFont(s, new Point2D(getCoord(x) - .02, getCoord(y) * -1), (double)7);
+				scene.add(string);
+				
 			}
 		}
 	}

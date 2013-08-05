@@ -1,5 +1,8 @@
 package com.dapper.a_star.interfaces;
 
+import java.util.ArrayList;
+
+import com.dapper.engine.data.math.Point2D;
 import com.dapper.engine.data.math.SimpleColor;
 import com.dapper.engine.data.objects.DapperObject;
 import com.dapper.engine.data.objects.SimpleSquare;
@@ -36,6 +39,7 @@ public class GridSquare extends DapperObject {
 		return shape.color;
 	}
 	public void toggle() {
+		printPoints();
 		if (processed)
 		{
 			shape.color = SimpleColor.blue;
@@ -43,6 +47,13 @@ public class GridSquare extends DapperObject {
 		} else {
 			shape.color = SimpleColor.green;
 			processed = true;
+		}
+		
+	}
+	private void printPoints() {
+		ArrayList<Point2D> list = shape.getTransformedPoints();
+		for (Point2D p : list) {
+    		System.out.println(p.getX() + ", " + p.getY());
 		}
 		
 	}

@@ -1,5 +1,6 @@
 package com.dapper.engine.default_implementations;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -13,17 +14,20 @@ import com.dapper.engine.data.objects.SimpleShape;
 
 @Component
 public class DefaultScene {
-	public Map<Integer, DapperObject> sceneContents;	
+	public Map<Integer, DapperObject> sceneMap;	
+	public List<DapperObject> sceneList;
 	public DefaultScene() {
-		sceneContents = new HashMap<Integer, DapperObject>();
+		sceneMap = new HashMap<Integer, DapperObject>();
+		sceneList = new ArrayList<DapperObject>();
 	}
 	
 	public void add(DapperObject obj) {
-		sceneContents.put(obj.id, obj);
+		sceneMap.put(obj.id, obj);
+		sceneList.add(obj);
 	}
 	
 	public Collection<DapperObject> getDisplayScene() {
-		return (Collection<DapperObject>) sceneContents.values();
+		return sceneList;
 		
 	}
 }

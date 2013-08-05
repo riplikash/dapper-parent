@@ -32,7 +32,7 @@ public class SimpleColor extends Vector4D{
     public final static SimpleColor blue = new SimpleColor(0,0,1);
     public final static SimpleColor BLUE = blue;
     public final static SimpleColor white = new SimpleColor(1,1,1);
-    public final static SimpleColor WHIE = white;
+    public final static SimpleColor WHITE = white;
     public final static SimpleColor black= new SimpleColor(0,0,0);
     public final static SimpleColor BLACK = black;
 

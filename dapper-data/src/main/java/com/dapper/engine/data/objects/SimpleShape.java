@@ -18,6 +18,7 @@ import com.dapper.engine.data.math.*;
  */
 public abstract class SimpleShape {
     ArrayList<Point2D> points;
+    
     public Point2D translation;
     public Point2D scaleVar;
     public double rotationVar;

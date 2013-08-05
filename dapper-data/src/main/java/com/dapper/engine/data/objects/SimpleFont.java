@@ -1,22 +1,34 @@
 package com.dapper.engine.data.objects;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.media.opengl.GLProfile;
+import javax.media.opengl.GL2;
 
 import com.dapper.engine.data.math.Point2D;
-import com.jogamp.opengl.util.texture.Texture;
-import com.jogamp.opengl.util.texture.TextureData;
-import com.jogamp.opengl.util.texture.TextureIO;
 
 public class SimpleFont extends DapperObject{
 	
+	double left, right, top, bottom;
+	ArrayList<SimpleChar> charList;
+	public SimpleFont(String s, Point2D startPoint, double size) {
+		charList = new ArrayList<SimpleChar>();
+		// 10pt = 1/10th the screen
+		
+		for (int i = 0; i < s.length(); i++)
+		{
+			Point2D scale = new Point2D(.6 * .01 * size, .01 * size);
+			Point2D translation = new Point2D(startPoint.getX() + i * scale.getX(), startPoint.getY());
+			char c = s.charAt(i);						
+			charList.add(new SimpleChar(c, translation, scale));
+			
+		}
+		
+	}
 	
-	SimpleFont() {
-		shape = new SimpleChar(new Point2D(0,0), new Point2D(.2, .2));
+	@Override
+	public void render(GL2 gl) {
+		for (SimpleChar c: charList)
+			c.render(gl);
 	}
 	
 	
