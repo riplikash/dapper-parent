@@ -2,6 +2,8 @@ package com.dapper.engine.data.objects;
 
 import java.util.List;
 
+import javax.media.opengl.GL2;
+
 import com.dapper.engine.data.math.Point2D;
 
 public class DapperObject {
@@ -20,6 +22,10 @@ public class DapperObject {
 		this.shape.translation.add(xMove, yMove);
 		
 		
+	}
+
+	public void render(GL2 gl) {
+		shape.render(gl);
 	}
 	
 }

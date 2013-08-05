@@ -3,6 +3,9 @@ package com.dapper.engine.data.objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.media.opengl.GL;
+import javax.media.opengl.GL2;
+
 import com.dapper.engine.data.math.Point2D;
 import com.dapper.engine.data.math.SimpleColor;
 
@@ -43,5 +46,18 @@ public class SimpleSquare extends SimpleShape{
     @Override
     public List<Point2D> getDisplayList() {
         return getTransformedPoints();
+    }
+    
+    @Override
+    public void render(GL2 gl)
+    {
+    	List<Point2D> displayList = getTransformedPoints();
+    	gl.glBegin(GL.GL_TRIANGLES);
+        gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
+        for (Point2D point : displayList){          
+        	
+            gl.glVertex2d(point.getX(), point.getY());
+        }
+        gl.glEnd();
     }
 }

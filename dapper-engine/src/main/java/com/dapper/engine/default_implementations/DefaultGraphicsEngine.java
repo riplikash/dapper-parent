@@ -1,5 +1,7 @@
 package com.dapper.engine.default_implementations;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.media.opengl.GL;
@@ -23,6 +25,9 @@ import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.util.FPSAnimator;
+import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureData;
+import com.jogamp.opengl.util.texture.TextureIO;
 
 public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Autowired
@@ -55,13 +60,18 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Override
 	public void init() {
 		System.out.println("Initializing graphics engine");
-		  	
+
 	}
+	
+	Texture fontTexture;
 
 	@Override
 	public void start() {
 		System.out.println("Starting graphics engine");
 		GLProfile glProfile = GLProfile.getDefault(); 
+		
+
+		
         GLCapabilities glCapabilities = new GLCapabilities(glProfile); 
         glWindow = GLWindow.create(glCapabilities);
         fpsAnimator = new FPSAnimator(glWindow, FPS, true);
@@ -86,8 +96,22 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
         glWindow.setSize(windowWidth, windowHeight);
 
 		glWindow.setVisible(true);
-		fpsAnimator.start();
 		
+	
+		fpsAnimator.start();
+//		if (fontTexture == null)
+//		{
+//			
+//	        try {
+//	            InputStream stream = getClass().getClassLoader().getResource("com/dapper/engine/resources/fontset.png").openStream();
+//	            TextureData data = TextureIO.newTextureData(glProfile, stream, false, "png");
+//	            fontTexture = TextureIO.newTexture(data);
+//	        }
+//	        catch (IOException exc) {
+//	            exc.printStackTrace();
+//	            System.exit(1);
+//	        }
+//		}
 	}
 
 	@Override
@@ -98,22 +122,30 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	}
 	@Override
 	public void render(GLAutoDrawable drawable) {
+		
 		gl = drawable.getGL().getGL2();
 		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
 		for (DapperObject obj: scene.getDisplayScene())
 		{
-			renderObject(obj.shape);
+			obj.render(gl);
+			//renderObject(obj.shape);
 		}
 	}
 
 	protected void renderObject(SimpleShape object) {
-	    gl.glBegin(GL.GL_TRIANGLES);
+	    fontTexture.enable(gl);
+	    fontTexture.bind(gl);
+	    
+		gl.glBegin(GL.GL_TRIANGLES);
         List<Point2D> displayList = object.getDisplayList();
         gl.glColor3d(object.color.getRed(), object.color.getGreen(), object.color.getBlue());
-        for (Point2D point : displayList){            
+        for (Point2D point : displayList){          
+        	gl.glTexCoord2d(point.getX(),  point.getY());
             gl.glVertex2d(point.getX(), point.getY());
         }
         gl.glEnd();
+        fontTexture.disable(gl);
+        
 	}
 	
 	public int getFPS() {

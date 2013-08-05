@@ -3,6 +3,9 @@ package com.dapper.engine.data.objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.media.opengl.GL;
+import javax.media.opengl.GL2;
+
 import com.dapper.engine.data.math.*;
 
 
@@ -65,4 +68,6 @@ public abstract class SimpleShape {
     {
         this.rotationVar += rotation;
     }
+
+	abstract public void render(GL2 gl) ;
 }

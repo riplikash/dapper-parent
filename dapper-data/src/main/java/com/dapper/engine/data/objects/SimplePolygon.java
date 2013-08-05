@@ -3,6 +3,8 @@ package com.dapper.engine.data.objects;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.media.opengl.GL2;
+
 import com.dapper.engine.data.math.Point2D;
 
 
@@ -24,4 +26,10 @@ public class SimplePolygon extends SimpleShape {
     public List<Point2D> getDisplayList() {
         return points;
     }
+
+	@Override
+	public void render(GL2 gl) {
+		// TODO Auto-generated method stub
+		
+	}
 }

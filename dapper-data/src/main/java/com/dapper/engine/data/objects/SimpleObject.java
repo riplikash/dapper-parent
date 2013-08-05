@@ -1,6 +1,7 @@
 package com.dapper.engine.data.objects;
 
 import com.dapper.engine.data.math.*;
+import com.jogamp.newt.opengl.GLWindow;
 
 
 /**
@@ -86,5 +87,9 @@ public class SimpleObject {
     public void move(double x, double y) {
         square.translation.add(x, y);
 
+    }
+    
+    public void render(GLWindow gl) {
+    	
     }
 }

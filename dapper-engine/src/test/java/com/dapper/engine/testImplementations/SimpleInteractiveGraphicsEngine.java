@@ -32,7 +32,8 @@ public class SimpleInteractiveGraphicsEngine extends DefaultGraphicsEngine{
 		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
 		for (DapperObject obj: scene.getDisplayScene())
 		{
-			renderObject(obj.shape);
+//			renderObject(obj.shape);
+			obj.render(gl);
 		}
 	}
 
