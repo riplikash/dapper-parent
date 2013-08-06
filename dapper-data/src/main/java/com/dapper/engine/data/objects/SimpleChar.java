@@ -60,7 +60,7 @@ public class SimpleChar extends SimpleSquare {
 		switch (c) {
 		case '0':
 			   
-	        leftX = 0/(double)16;
+	        leftX = 0;
 	        rightX =1/(double)16;
 	        topY = 13/(double)14;
 	        bottomY = 12/(double)14;	        	      

@@ -36,8 +36,7 @@ public class SearchGrid {
 				scene.add(square);
 				String s = "(" + new Double(x).toString().charAt(0) + "," + new Double(y).toString().charAt(0) + ")";
 				
-				SimpleFont string = new SimpleFont(s, new Point2D(getCoord(x) - .02, getCoord(y) * -1), (double)7);
-				scene.add(string);
+				
 				
 			}
 		}
