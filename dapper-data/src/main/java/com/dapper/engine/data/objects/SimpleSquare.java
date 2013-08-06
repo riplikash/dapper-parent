@@ -49,7 +49,7 @@ public class SimpleSquare extends SimpleShape{
     }
     
     @Override
-    public void render()
+    public void render(GL2 gl)
     {
     	List<Point2D> displayList = getTransformedPoints();
     	gl.glBegin(GL.GL_TRIANGLES);

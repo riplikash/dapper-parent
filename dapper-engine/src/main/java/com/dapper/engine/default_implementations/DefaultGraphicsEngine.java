@@ -99,25 +99,12 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 		
 	
 		fpsAnimator.start();
-//		if (fontTexture == null)
-//		{
-//			
-//	        try {
-//	            InputStream stream = getClass().getClassLoader().getResource("com/dapper/engine/resources/fontset.png").openStream();
-//	            TextureData data = TextureIO.newTextureData(glProfile, stream, false, "png");
-//	            fontTexture = TextureIO.newTexture(data);
-//	        }
-//	        catch (IOException exc) {
-//	            exc.printStackTrace();
-//	            System.exit(1);
-//	        }
-//		}
 	}
 
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
-			System.out.println("reshaping");
+			System.out.println("reshaping graphics engine");
 		
 	}
 	@Override
@@ -128,25 +115,10 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 		for (DapperObject obj: scene.getDisplayScene())
 		{
 			obj.render(gl);
-			//renderObject(obj.shape);
+			
 		}
 	}
 
-	protected void renderObject(SimpleShape object) {
-	    fontTexture.enable(gl);
-	    fontTexture.bind(gl);
-	    
-		gl.glBegin(GL.GL_TRIANGLES);
-        List<Point2D> displayList = object.getDisplayList();
-        gl.glColor3d(object.color.getRed(), object.color.getGreen(), object.color.getBlue());
-        for (Point2D point : displayList){          
-        	gl.glTexCoord2d(point.getX(),  point.getY());
-            gl.glVertex2d(point.getX(), point.getY());
-        }
-        gl.glEnd();
-        fontTexture.disable(gl);
-        
-	}
 	
 	public int getFPS() {
 		return FPS;

@@ -56,7 +56,7 @@ public class SimpleChar extends SimpleSquare {
         topY = 1/(double)14;
         bottomY = 0/(double)14;
 
-        System.out.println(c);
+        
 		switch (c) {
 		case '0':
 			   

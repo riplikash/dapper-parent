@@ -36,8 +36,6 @@ public class DapperEngineTestGameEngine implements DapperGameEngineInterface {
 
 	public DapperEngineTestGameEngine() {
 
-		System.out.println("Constructing game engine");
-	
 	}
 	
 	@Override
@@ -148,7 +146,6 @@ public class DapperEngineTestGameEngine implements DapperGameEngineInterface {
 
 	@Override
 	public void init() {
-		System.out.println("initializing game engine");
 		player = new DapperObject();
 		player.id = 0;
 		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);
@@ -157,20 +154,20 @@ public class DapperEngineTestGameEngine implements DapperGameEngineInterface {
 
 	@Override
 	public void dispose() {
-		System.out.println("disposing of game engine");
+		
 		
 	}
 
 	@Override
 	public void start() {
-		System.out.println("Starting game engine");
+		
 		
 	}
 
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
-		System.out.println("reshaping game engine");
+		
 		
 	}
 

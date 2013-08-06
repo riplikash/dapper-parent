@@ -34,8 +34,6 @@ public class DefaultGameEngine implements DapperGameEngineInterface {
 	protected int height;
 	public DefaultGameEngine() {
 
-		System.out.println("Constructing game engine");
-	
 	}
 	
 	@Override
@@ -144,31 +142,27 @@ public class DefaultGameEngine implements DapperGameEngineInterface {
 
 	@Override
 	public void init() {
-		System.out.println("initializing game engine");
+		System.out.println("heheyheyheyhey");
 		DapperObject player = new DapperObject();
 		player.id = 0;
-		Point2D Translation = new Point2D(1,1);
 		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);
 		scene.add(player);
 	}
 
 	@Override
 	public void dispose() {
-		System.out.println("disposing of game engine");
-		
+	
 	}
 
 	@Override
 	public void start() {
-		System.out.println("Starting game engine");
+
 		
 	}
 
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
-			int height) {
-		System.out.println("reshaping game engine");
-		System.out.println("x = " + x + " y = " + y + "width = " + width + " height = " + height); 
+			int height) { 
 		this.width = width; 
 		this.height = height;
 	}

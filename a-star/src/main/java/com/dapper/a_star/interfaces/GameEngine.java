@@ -63,7 +63,6 @@ public class GameEngine extends DefaultGameEngine {
 	private void markSquare(int x, int y) {
 		int xGrid = (int)(((double)x/(double)width)*10);
 		int yGrid = (int)(((double)y/(double)height)*10);
-		System.out.println(x + " , " + y);
 		searchGrid.grid[xGrid][yGrid].toggle();
 	}
 }
