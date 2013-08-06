@@ -19,47 +19,48 @@ import com.dapper.engine.data.math.*;
 public abstract class SimpleShape {
     ArrayList<Point2D> points;
     
-    public Point2D translation;
-    public Point2D scaleVar;
-    public double rotationVar;
+    public ScenePosition pos;
+ 
     public SimpleColor color;
     
     public SimpleShape(Point2D translation, Point2D scaleVar)
     {
-        this.translation = translation;
-        this.scaleVar = scaleVar;
-        this.color = null;
-        this.rotationVar = 0;
+    	pos = new ScenePosition(translation.getX(), translation.getY(), scaleVar.getX(), scaleVar.getY(), 0);
+
+        this.color = SimpleColor.WHITE;
+        
     }
 
     public SimpleShape(Point2D translation, Point2D scaleVar, SimpleColor color)
     {
-        this.translation = translation;
-        this.scaleVar = scaleVar;
+    	pos = new ScenePosition(translation.getX(), translation.getY(), scaleVar.getX(), scaleVar.getY(), 0);
         this.color = color;
-        this.rotationVar = 0;
     }
 
     SimpleShape() {
-        points = null;
-        translation = null;
-        scaleVar = null;
-        color = null;
+        pos = new ScenePosition();
+        this.color = SimpleColor.WHITE;
     }
 
     public abstract List<Point2D> getDisplayList();
 
-    public void scale(double x, double y) {
-        scaleVar.add(x, y);
-    }
-
-
     public ArrayList<Point2D> getTransformedPoints()
+    {
+        ArrayList<Point2D> rtPoints = new ArrayList<Point2D>();
+        
+        for (Point2D point: points)
+        {
+            rtPoints.add(Math2D.translate(Math2D.rotate(Math2D.scale(point, pos.getScalePoint()),  pos.rotation), pos.getTransformPoint()));
+        }
+        return rtPoints;
+
+    }
+    public ArrayList<Point2D> getTransformedPoints(ScenePosition pos)
     {
         ArrayList<Point2D> rtPoints = new ArrayList<Point2D>();
         for (Point2D point: points)
         {
-            rtPoints.add(Math2D.translate(Math2D.rotate(Math2D.scale(point, scaleVar),  rotationVar), translation));
+            rtPoints.add(Math2D.translate(Math2D.rotate(Math2D.scale(point, pos.getScalePoint()),  pos.rotation), pos.getTransformPoint()));
         }
         return rtPoints;
 
@@ -67,8 +68,9 @@ public abstract class SimpleShape {
 
     public void rotate(double rotation)
     {
-        this.rotationVar += rotation;
+        pos.rotate(rotation);
     }
+
 
 	abstract public void render(GL2 gl) ;
 }

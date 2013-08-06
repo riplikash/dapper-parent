@@ -96,5 +96,11 @@
         	<artifactId>dapper-data</artifactId>
         	<version>${parent.version}</version>
         </dependency>
+        <dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjrt</artifactId>
+    <version>1.6.12</version>
+</dependency>
 	</dependencies>	
+	
 </project>

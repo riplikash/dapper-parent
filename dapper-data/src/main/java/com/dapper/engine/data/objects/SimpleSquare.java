@@ -7,6 +7,7 @@ import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 
 import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.math.ScenePosition;
 import com.dapper.engine.data.math.SimpleColor;
 
 /**
@@ -60,4 +61,17 @@ public class SimpleSquare extends SimpleShape{
         }
         gl.glEnd();
     }
+    
+
+//    public void render(GL2 gl, ScenePosition pos)
+//    {
+//    	List<Point2D> displayList = getTransformedPoints();
+//    	gl.glBegin(GL.GL_TRIANGLES);
+//        gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
+//        for (Point2D point : displayList){          
+//        	
+//            gl.glVertex2d(point.getX(), point.getY());
+//        }
+//    }
+       
 }

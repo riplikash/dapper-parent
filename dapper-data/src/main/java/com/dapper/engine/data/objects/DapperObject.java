@@ -19,7 +19,7 @@ public class DapperObject {
 		return shape.getDisplayList();
 	}
 	public void move(double xMove, double yMove) {
-		this.shape.translation.add(xMove, yMove);
+		this.shape.pos.transform(xMove, yMove);
 		
 		
 	}

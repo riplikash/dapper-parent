@@ -23,7 +23,7 @@ public class GridSquare extends DapperObject {
 		shape = square;
 		processed = false;
 		String temp = new Integer(weight).toString();
-		Point2D translation = square.translation;
+		Point2D translation = square.pos.getTransformPoint();
 		countFace = new SimpleFont(temp, translation, 7);
 		
 	}
@@ -50,7 +50,7 @@ public class GridSquare extends DapperObject {
 		printPoints();
 		weight++;
 		String temp = new Integer(weight).toString();
-		Point2D translation = shape.translation;
+		Point2D translation = shape.pos.getTransformPoint();
 		countFace = new SimpleFont(temp, translation, 7);
 		if (processed)
 		{
