@@ -168,7 +168,7 @@ public class SimpleChar extends SimpleSquare {
     }
     
     @Override
-    public void render()
+    public void render(GL2 gl)
     {
     	init();
     	 fontTexture.enable(gl);

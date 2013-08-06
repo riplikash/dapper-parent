@@ -27,14 +27,14 @@ import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_PRESSED;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_RELEASED;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_WHEEL_MOVED;
 @Component
-public class GameEngineInterfaceTest implements DapperGameEngineInterface {
+public class DapperEngineTestGameEngine implements DapperGameEngineInterface {
 	@Autowired 
 	DefaultControlInterface controlInterface;
 	
 	@Autowired
 	DefaultScene scene;
 
-	public GameEngineInterfaceTest() {
+	public DapperEngineTestGameEngine() {
 
 		System.out.println("Constructing game engine");
 	
@@ -151,7 +151,6 @@ public class GameEngineInterfaceTest implements DapperGameEngineInterface {
 		System.out.println("initializing game engine");
 		player = new DapperObject();
 		player.id = 0;
-		Point2D Translation = new Point2D(1,1);
 		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);
 		scene.add(player);
 	}

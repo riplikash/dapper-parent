@@ -128,8 +128,6 @@ public class FontTestGameEngine extends DefaultGameEngine {
 		
 	}
 
-
-
 	private enum EventType { MOUSE, KEY, WINDOW, MONITOR, INVALID }
 
 	private EventType eventType(InputEvent e) {
@@ -155,9 +153,9 @@ public class FontTestGameEngine extends DefaultGameEngine {
 		player = new DapperObject();
 		player.id = 0;
 		Point2D Translation = new Point2D(1,1);
-		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.GREEN);
-		scene.add(  new SimpleFont("123", new Point2D(0,0), 20));
+		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.GREEN);		
 		scene.add(player);
+		scene.add(  new SimpleFont("123", new Point2D(0,0), 20));
 		
 		
 	}
