@@ -152,10 +152,14 @@ public class FontTestGameEngine extends DefaultGameEngine {
 		System.out.println("initializing game engine");
 		player = new DapperObject();
 		player.id = 0;
-		Point2D Translation = new Point2D(1,1);
 		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.GREEN);		
 		scene.add(player);
-		scene.add(  new SimpleFont("123", new Point2D(0,0), 20));
+		scene.add(  new SimpleFont(" !\"#$%&'()*+,-./", new Point2D(-1,.95), 20));
+		scene.add(  new SimpleFont("0123456789:;<=>?", new Point2D(-1,.75), 20));
+		scene.add(  new SimpleFont("@ABCDEFGHIJKLMNO", new Point2D(-1,.55), 20));
+		scene.add(  new SimpleFont("PQRSTUVWXYZ[\\]^_", new Point2D(-1,.35), 20));
+		scene.add(  new SimpleFont("'abcdefghijklmno", new Point2D(-1,.15), 20));
+		scene.add(  new SimpleFont("pqrstuvwxyz{|}~", new Point2D(-1,-.05), 20));
 		
 		
 	}

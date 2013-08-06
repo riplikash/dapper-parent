@@ -17,7 +17,7 @@ public class SimpleFont extends DapperObject{
 		for (int i = 0; i < s.length(); i++)
 		{
 			Point2D scale = new Point2D(.6 * .01 * size, .01 * size);
-			Point2D translation = new Point2D(startPoint.getX() + i * scale.getX(), startPoint.getY());
+			Point2D translation = new Point2D(startPoint.getX() + i * scale.getX() - i * +.01, startPoint.getY());
 			char c = s.charAt(i);						
 			charList.add(new SimpleChar(c, translation, scale));
 			
