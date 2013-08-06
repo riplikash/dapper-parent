@@ -14,7 +14,6 @@ import com.dapper.engine.data.objects.DapperObject;
 import com.dapper.engine.data.objects.SimpleSquare;
 import com.dapper.engine.default_implementations.DefaultControlInterface;
 import com.dapper.engine.default_implementations.DefaultScene;
-import com.dapper.engine.default_implementations.DefaultGameEngine.EventType;
 import com.jogamp.newt.event.InputEvent;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.MouseEvent;

@@ -34,13 +34,13 @@ public class SimpleSquare extends SimpleShape{
     {
         super(translation, scale, color);
         points = new ArrayList<Point2D>();
-        points.add(new Point2D(0, 0, color));
-        points.add(new Point2D(1, 0, color));
-        points.add(new Point2D(0,-1, color));
+        points.add(new Point2D(0, 0));
+        points.add(new Point2D(1, 0));
+        points.add(new Point2D(0,-1));
 
-        points.add(new Point2D(0, -1, color));
-        points.add(new Point2D(1, 0, color));
-        points.add(new Point2D(1, -1, color));
+        points.add(new Point2D(0, -1));
+        points.add(new Point2D(1, 0));
+        points.add(new Point2D(1, -1));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class SimpleSquare extends SimpleShape{
     }
     
     @Override
-    public void render(GL2 gl)
+    public void render()
     {
     	List<Point2D> displayList = getTransformedPoints();
     	gl.glBegin(GL.GL_TRIANGLES);

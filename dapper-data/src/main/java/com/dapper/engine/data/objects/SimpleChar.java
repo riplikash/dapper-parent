@@ -42,12 +42,12 @@ public class SimpleChar extends SimpleSquare {
 		super(translation, scale, SimpleColor.white);
         texture = new ArrayList<Point2D>();
         points = new ArrayList<Point2D>();
-        points.add(new Point2D(0, 0, color));        
-        points.add(new Point2D(1, 0, color));
-        points.add(new Point2D(0, -1, color));        
-        points.add(new Point2D(0, -1, color));        
-        points.add(new Point2D(1, 0, color));
-        points.add(new Point2D(1, -1, color));
+        points.add(new Point2D(0, 0));        
+        points.add(new Point2D(1, 0));
+        points.add(new Point2D(0, -1));        
+        points.add(new Point2D(0, -1));        
+        points.add(new Point2D(1, 0));
+        points.add(new Point2D(1, -1));
 	        
 
 		double leftX, rightX, topY, bottomY;		   
@@ -168,7 +168,7 @@ public class SimpleChar extends SimpleSquare {
     }
     
     @Override
-    public void render(GL2 gl)
+    public void render()
     {
     	init();
     	 fontTexture.enable(gl);
