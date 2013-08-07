@@ -18,8 +18,8 @@ import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
 import com.dapper.engine.data.math.SimpleColor;
-import com.dapper.engine.data.objects.DapperSquare;
-import com.dapper.engine.data.objects.NewSimpleFont;
+import com.dapper.engine.data.objects.SimpleSquare;
+import com.dapper.engine.data.objects.SimpleFont;
 import com.dapper.engine.data.objects.SceneRoot;
 import com.dapper.engine.data.objects.TestControlSquare;
 import com.dapper.engine.default_implementations.DefaultControlInterface;
@@ -166,12 +166,12 @@ public class NewObjectGameEngine implements DapperGameEngineInterface {
 	public void init() {
 		player = new TestControlSquare(-.3, .5, .1, .1, 0, SimpleColor.green);
 
-		DapperSquare square = new DapperSquare(-.3, .5, .1, .1, 0, SimpleColor.BLUE);
+		SimpleSquare square = new SimpleSquare(-.3, .5, .1, .1, 0, SimpleColor.BLUE);
 		scene.addChild(square);
-		scene.addChild(new DapperSquare(0, 0, .5, .1, 0, SimpleColor.red));
-		scene.addChild(new DapperSquare(-1, 1, .2, .8, 0, SimpleColor.red));
+		scene.addChild(new SimpleSquare(0, 0, .5, .1, 0, SimpleColor.red));
+		scene.addChild(new SimpleSquare(-1, 1, .2, .8, 0, SimpleColor.red));
 		scene.addChild(player);
-		scene.addChild(new NewSimpleFont("Hey, dude", 0,0, 10));
+		scene.addChild(new SimpleFont("Hey, dude", 0,0, 10));
 	}
 
 	@Override

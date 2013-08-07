@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.dapper.engine.data.math.SimpleColor;
 
 @Component
-public class SceneRoot extends NewDapperObject {
+public class SceneRoot extends DapperObject {
 
 	public SceneRoot()
 	{
@@ -20,7 +20,7 @@ public class SceneRoot extends NewDapperObject {
 
 	@Override
 	public void render(GL2 gl, double[][] pos) {
-		for (NewDapperObject c: children)
+		for (DapperObject c: children)
 		{
 			c.render(gl, pos);
 		}

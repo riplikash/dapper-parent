@@ -4,23 +4,23 @@ import javax.media.opengl.GL2;
 
 import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.SimpleColor;
-import com.dapper.engine.data.objects.DapperSquare;
-import com.dapper.engine.data.objects.NewDapperObject;
-import com.dapper.engine.data.objects.NewSimpleFont;
+import com.dapper.engine.data.objects.SimpleSquare;
+import com.dapper.engine.data.objects.DapperObject;
+import com.dapper.engine.data.objects.SimpleFont;
 
-public class GridSquare extends NewDapperObject {
+public class GridSquare extends DapperObject {
 	public int weight;
 	public boolean processed;
-	DapperSquare square;
-	NewSimpleFont countFace;
+	SimpleSquare square;
+	SimpleFont countFace;
 	
 	public GridSquare(int weight, double x, double y, double scaleX, double scaleY) {
 		super(x, y, scaleX, scaleY, 0);
 		this.weight = weight;
 		processed = false;
 		String temp = new Integer(weight).toString();
-		square = new DapperSquare(0,0,1,1,0,SimpleColor.green);
-		countFace = new NewSimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
+		square = new SimpleSquare(0,0,1,1,0,SimpleColor.green);
+		countFace = new SimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
 		
 	}
 	
@@ -34,7 +34,7 @@ public class GridSquare extends NewDapperObject {
 		weight++;
 		String temp = new Integer(weight).toString();
 		
-		countFace = new NewSimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
+		countFace = new SimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
 		if (processed)
 		{
 			square.setColor(SimpleColor.blue);

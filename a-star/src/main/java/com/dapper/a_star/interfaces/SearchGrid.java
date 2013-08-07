@@ -3,9 +3,9 @@ package com.dapper.a_star.interfaces;
 
 import javax.media.opengl.GL2;
 
-import com.dapper.engine.data.objects.NewDapperObject;
+import com.dapper.engine.data.objects.DapperObject;
 
-public class SearchGrid extends NewDapperObject {
+public class SearchGrid extends DapperObject {
 	public GridSquare [][] grid;	
 	
 	public SearchGrid() {

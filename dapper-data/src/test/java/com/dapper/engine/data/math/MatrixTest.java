@@ -40,7 +40,7 @@ public class MatrixTest {
 		double[][] b = Matrix.transpose(a);
 		System.out.println(Matrix.toString(b));
 		assertEquals(a[0][1], b[1][0], 0);
-		assertEquals(a[1][3], b[3][1], 0);
+		assertEquals(a[1][2], b[2][1], 0);
 		
 	}
 

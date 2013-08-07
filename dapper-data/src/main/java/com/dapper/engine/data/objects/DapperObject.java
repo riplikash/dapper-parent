@@ -8,21 +8,21 @@ import javax.media.opengl.GL2;
 import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.SimpleColor;
 
-public abstract class NewDapperObject {
+public abstract class DapperObject {
 	protected double[][] pos;
 	SimpleColor color;
-	List<NewDapperObject> children;
+	List<DapperObject> children;
 
-	public NewDapperObject() {
+	public DapperObject() {
 		pos = Matrix.identity(3);	
-		children = new ArrayList<NewDapperObject>();
+		children = new ArrayList<DapperObject>();
 	}
 	
-	public NewDapperObject(double x, double y, double scaleX, double scaleY, double rotation) {
+	public DapperObject(double x, double y, double scaleX, double scaleY, double rotation) {
 		pos = Matrix.new2DPosition(x, y, scaleX, scaleY, rotation);
-		children = new ArrayList<NewDapperObject>();
+		children = new ArrayList<DapperObject>();
 	}
-	public NewDapperObject(double[][] newPos) {
+	public DapperObject(double[][] newPos) {
 		pos = newPos;
 	}
 	public abstract void render(GL2 gl, double[][] pos);
@@ -30,7 +30,7 @@ public abstract class NewDapperObject {
 		render(gl, Matrix.identity(3));
 	};
 	
-	public void addChild(NewDapperObject c)
+	public void addChild(DapperObject c)
 	{
 		children.add(c);
 	}

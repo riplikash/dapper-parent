@@ -16,7 +16,7 @@ import com.jogamp.opengl.util.texture.Texture;
 import com.jogamp.opengl.util.texture.TextureData;
 import com.jogamp.opengl.util.texture.TextureIO;
 
-public class NewSimpleChar extends DapperSquare {
+public class SimpleChar extends SimpleSquare {
 	static volatile Texture fontTexture;
 	static volatile boolean loaded = false;
 	static volatile Map<String, Point2D> charPos;
@@ -29,7 +29,7 @@ public class NewSimpleChar extends DapperSquare {
 	
 	public char getChar() { return character; }
 	
-	public NewSimpleChar(char c, double x, double y, double scaleX, double scaleY, double rotation, SimpleColor color) {
+	public SimpleChar(char c, double x, double y, double scaleX, double scaleY, double rotation, SimpleColor color) {
 		super(x, y, scaleX, scaleY, rotation, color);
 		this.character = c;
 		if (charPos == null)

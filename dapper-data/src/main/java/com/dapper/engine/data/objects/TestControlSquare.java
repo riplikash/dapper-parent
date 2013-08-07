@@ -1,9 +1,10 @@
 package com.dapper.engine.data.objects;
 
+import com.dapper.engine.data.interfaces.TestControllableInterface;
 import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.SimpleColor;
 
-public class TestControlSquare extends DapperSquare implements SimpleControllable {
+public class TestControlSquare extends SimpleSquare implements TestControllableInterface {
 
 	public TestControlSquare(double x, double y, double scaleX, double scaleY,
 			double rotation, SimpleColor color) {
