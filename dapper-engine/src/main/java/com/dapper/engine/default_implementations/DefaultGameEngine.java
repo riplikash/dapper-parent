@@ -1,5 +1,18 @@
 package com.dapper.engine.default_implementations;
 
+import static com.jogamp.newt.event.KeyEvent.VK_DOWN;
+import static com.jogamp.newt.event.KeyEvent.VK_ESCAPE;
+import static com.jogamp.newt.event.KeyEvent.VK_LEFT;
+import static com.jogamp.newt.event.KeyEvent.VK_RIGHT;
+import static com.jogamp.newt.event.KeyEvent.VK_UP;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_CLICKED;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_DRAGGED;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_ENTERED;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_EXITED;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_PRESSED;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_RELEASED;
+import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_WHEEL_MOVED;
+
 import java.util.Queue;
 
 import javax.media.opengl.GLAutoDrawable;
@@ -8,27 +21,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
-import com.dapper.engine.data.math.Point2D;
-import com.dapper.engine.data.math.SimpleColor;
-import com.dapper.engine.data.objects.DapperObject;
-import com.dapper.engine.data.objects.SimpleSquare;
-import com.dapper.engine.default_implementations.DefaultControlInterface;
-import com.dapper.engine.default_implementations.DefaultScene;
+import com.dapper.engine.data.objects.SceneRoot;
 import com.jogamp.newt.event.InputEvent;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.MouseEvent;
-import static com.jogamp.newt.event.MouseEvent.*;
-import static com.jogamp.newt.event.KeyEvent.*;
-
-import static com.jogamp.newt.event.KeyEvent.*;
 @Component
 public class DefaultGameEngine implements DapperGameEngineInterface {
 
 	@Autowired 
 	public DefaultControlInterface controlInterface;
-	
 	@Autowired
-	public DefaultScene scene;
+	protected SceneRoot scene;
 
 	protected int width;
 	protected int height;
@@ -142,11 +145,7 @@ public class DefaultGameEngine implements DapperGameEngineInterface {
 
 	@Override
 	public void init() {
-		System.out.println("heheyheyheyhey");
-		DapperObject player = new DapperObject();
-		player.id = 0;
-		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);
-		scene.add(player);
+
 	}
 
 	@Override

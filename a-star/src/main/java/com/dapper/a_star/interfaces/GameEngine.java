@@ -16,7 +16,7 @@ import com.jogamp.newt.event.MouseEvent;
 public class GameEngine extends DefaultGameEngine {
 	int gridSizeX = 10;
 	int gridSizeY = 10;
-	@Autowired
+
 	SearchGrid searchGrid;
 	public GameEngine() {
 		super();		
@@ -24,7 +24,8 @@ public class GameEngine extends DefaultGameEngine {
 
 	@Override
 	public void init() {
-		searchGrid.init();
+		searchGrid = new SearchGrid();
+		scene.addChild(searchGrid);
 	}
 	
 	@Override
@@ -33,8 +34,7 @@ public class GameEngine extends DefaultGameEngine {
 	      {
 			
 	          case EVENT_MOUSE_CLICKED:
-	        	  
-	        	  
+ 
 	              break;
 	          case EVENT_MOUSE_RELEASED:
 	        	  markSquare(e.getX(), e.getY());

@@ -234,7 +234,8 @@ public class NewSimpleChar extends DapperSquare {
   
        
     }
-    
+    	
+      
     
     
 }

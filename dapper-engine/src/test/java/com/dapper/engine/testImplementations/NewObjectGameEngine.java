@@ -19,7 +19,6 @@ import org.springframework.stereotype.Component;
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
 import com.dapper.engine.data.math.SimpleColor;
 import com.dapper.engine.data.objects.DapperSquare;
-import com.dapper.engine.data.objects.NewSimpleChar;
 import com.dapper.engine.data.objects.NewSimpleFont;
 import com.dapper.engine.data.objects.SceneRoot;
 import com.dapper.engine.data.objects.TestControlSquare;

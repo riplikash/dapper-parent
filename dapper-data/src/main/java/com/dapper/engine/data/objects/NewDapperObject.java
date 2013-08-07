@@ -15,18 +15,15 @@ public abstract class NewDapperObject {
 
 	public NewDapperObject() {
 		pos = Matrix.identity(3);	
-		color = color.clear;
 		children = new ArrayList<NewDapperObject>();
 	}
 	
-	public NewDapperObject(double x, double y, double scaleX, double scaleY, double rotation, SimpleColor color) {
+	public NewDapperObject(double x, double y, double scaleX, double scaleY, double rotation) {
 		pos = Matrix.new2DPosition(x, y, scaleX, scaleY, rotation);
-		this.color = color;
 		children = new ArrayList<NewDapperObject>();
 	}
-	public NewDapperObject(double[][] newPos, SimpleColor color) {
+	public NewDapperObject(double[][] newPos) {
 		pos = newPos;
-		this.color = color;
 	}
 	public abstract void render(GL2 gl, double[][] pos);
 	public void render(GL2 gl) {
@@ -37,5 +34,6 @@ public abstract class NewDapperObject {
 	{
 		children.add(c);
 	}
-	
+
+
 }

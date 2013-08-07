@@ -10,7 +10,7 @@ import javax.media.opengl.GLProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
-import com.dapper.engine.data.objects.NewDapperObject;
+import com.dapper.engine.data.objects.SceneRoot;
 import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.WindowAdapter;
@@ -29,7 +29,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Autowired
 	public MouseListener mouseListener;
 	@Autowired
-	NewDapperObject root;
+	SceneRoot root;
 
 	
 	protected GL2 gl;
@@ -104,11 +104,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 		gl = drawable.getGL().getGL2();
 		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
 		root.render(gl);
-//		for (DapperObject obj: scene.getDisplayScene())
-//		{
-//			obj.render(gl);
-//			
-//		}
+
 	}
 
 	

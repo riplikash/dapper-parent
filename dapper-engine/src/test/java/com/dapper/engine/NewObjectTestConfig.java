@@ -30,10 +30,6 @@ public class NewObjectTestConfig {
 	public DapperGameEngineInterface gameEngine() { 
 		return new NewObjectGameEngine();
 	}
-	
-	@Bean 
-	public SceneRoot root() {
-		return new SceneRoot();
-	}
+
 
 }

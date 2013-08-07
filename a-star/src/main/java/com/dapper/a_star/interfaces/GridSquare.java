@@ -1,76 +1,58 @@
 package com.dapper.a_star.interfaces;
 
-import java.util.ArrayList;
-
 import javax.media.opengl.GL2;
 
-import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.SimpleColor;
-import com.dapper.engine.data.objects.DapperObject;
-import com.dapper.engine.data.objects.SimpleFont;
-import com.dapper.engine.data.objects.SimpleSquare;
+import com.dapper.engine.data.objects.DapperSquare;
+import com.dapper.engine.data.objects.NewDapperObject;
+import com.dapper.engine.data.objects.NewSimpleFont;
 
-public class GridSquare extends DapperObject {
+public class GridSquare extends NewDapperObject {
 	public int weight;
 	public boolean processed;
-	SimpleFont countFace;
+	DapperSquare square;
+	NewSimpleFont countFace;
 	
-	
-	public GridSquare(int weight, double x, double y, double scaleX, double scaleY, int id) {
-		super(new SimpleSquare(new Point2D(x, y), new Point2D(scaleX, scaleY), SimpleColor.red), id);
+	public GridSquare(int weight, double x, double y, double scaleX, double scaleY) {
+		super(x, y, scaleX, scaleY, 0);
 		this.weight = weight;
 		processed = false;
 		String temp = new Integer(weight).toString();
-		Point2D translation = new Point2D(x, y);
-		countFace = new SimpleFont(temp, translation, 7);
+		square = new DapperSquare(0,0,1,1,0,SimpleColor.green);
+		countFace = new NewSimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
 		
-	}
-	public GridSquare(int weight) {
-		shape.color = SimpleColor.red;
-		this.weight = weight;
-		processed = false;
-	}
-	public GridSquare() {
-		shape.color = SimpleColor.red;
-		this.weight = 1;
-		processed = false;
 	}
 	
 	public void changeColor(SimpleColor c)
 	{
-		shape.color = c;
+		square.setColor(c);
 		
 	}
-	public SimpleColor getColor() {
-		return shape.color;
-	}
+
 	public void toggle() {
-		printPoints();
 		weight++;
 		String temp = new Integer(weight).toString();
-		Point2D translation = null;//shape.pos.getTranslatePoint();
-		countFace = new SimpleFont(temp, translation, 7);
+		
+		countFace = new NewSimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
 		if (processed)
 		{
-			shape.color = SimpleColor.blue;
+			square.setColor(SimpleColor.blue);
 			processed = false;
 		} else {
-			shape.color = SimpleColor.green;
+			square.setColor(SimpleColor.red);
 			processed = true;
 		}
 		
 	}
-	private void printPoints() {
-		ArrayList<Point2D> list = shape.getTransformedPoints();
-		for (Point2D p : list) {
-    		System.out.println(p.getX() + ", " + p.getY());
-		}
+
+
+	@Override
+	public void render(GL2 gl, double[][] pos) {
+		double[][] finalTransformation = Matrix.multiply(pos, this.pos);
+		square.render(gl, finalTransformation);
+		countFace.render(gl, finalTransformation);
 		
-	}
-	
-	public void render(GL2 gl) {
-		shape.render(gl);
-		countFace.render(gl);
 	}
 
 }

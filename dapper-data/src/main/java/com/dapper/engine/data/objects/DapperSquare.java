@@ -8,13 +8,15 @@ import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.SimpleColor;
 
 public class DapperSquare extends NewDapperObject {
+	protected SimpleColor color;
 	static double[] a = {-.5,.5,1}; //top left
 	static double[] b = {.5,.5,1}; // top right
 	static double[] c = {-.5, -.5,1}; // bottom left
 	static double[] d = {.5,-.5,1}; // bottom right
 	public DapperSquare(double x, double y, double scaleX, double scaleY,
 			double rotation, SimpleColor color) {
-		super(x, y, scaleX, scaleY, rotation, color);		
+		super(x, y, scaleX, scaleY, rotation);	
+		this.color = color;
 	}
 
 	@Override
@@ -38,5 +40,11 @@ public class DapperSquare extends NewDapperObject {
 
         gl.glEnd();
 	}
-
+	public SimpleColor getColor() {
+		return color;
+	}
+	public void setColor(SimpleColor c)
+	{
+		color = c;
+	}
 }
