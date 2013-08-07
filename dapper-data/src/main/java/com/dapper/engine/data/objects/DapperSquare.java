@@ -9,9 +9,9 @@ import com.dapper.engine.data.math.SimpleColor;
 
 public class DapperSquare extends NewDapperObject {
 	static double[] a = {-.5,.5,1}; //top left
-	static double[] b = {1,0,1}; // top right
-	static double[] c = {0,-1,1}; // bottom left
-	static double[] d = {1,-1,1}; // bottom right
+	static double[] b = {.5,.5,1}; // top right
+	static double[] c = {-.5, -.5,1}; // bottom left
+	static double[] d = {.5,-.5,1}; // bottom right
 	public DapperSquare(double x, double y, double scaleX, double scaleY,
 			double rotation, SimpleColor color) {
 		super(x, y, scaleX, scaleY, rotation, color);		
