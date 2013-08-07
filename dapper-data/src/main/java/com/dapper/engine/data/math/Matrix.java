@@ -121,7 +121,7 @@ public class Matrix {
     	{
     		for (int x = 0; x < width; x++)
     		{
-    			rt += Util.round(a[y][x], roundTo) + " ";
+    			rt += DapperUtil.round(a[y][x], roundTo) + " ";
     		}
     		rt += "\n";
     	}
@@ -153,7 +153,7 @@ public class Matrix {
 
 		for (int x = 0; x < width; x++)
 		{
-			rt += Util.round(a[x], roundTo) + " ";
+			rt += DapperUtil.round(a[x], roundTo) + " ";
 		}
 
     	

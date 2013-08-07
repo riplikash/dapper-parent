@@ -133,11 +133,11 @@ public class MatrixTest {
 		double[][] t = Matrix.rotation(90);
 		double[] point ={0,1,1};
 		point = Matrix.multiply(t, point);
-		assertEquals( 1,Util.round(point[0],2), 0);
-		assertEquals(0,Util.round(point[1],2),0);
+		assertEquals( 1,DapperUtil.round(point[0],2), 0);
+		assertEquals(0,DapperUtil.round(point[1],2),0);
 		point = Matrix.multiply(Matrix.rotation(180), point);
-		assertEquals(-1,Util.round(point[0],2), 0);
-		assertEquals(0,Util.round(point[1],2),0);
+		assertEquals(-1,DapperUtil.round(point[0],2), 0);
+		assertEquals(0,DapperUtil.round(point[1],2),0);
 		
 
 	}

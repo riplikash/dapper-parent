@@ -1,6 +1,6 @@
 package com.dapper.engine.data.math;
 
-public class Util {
+public class DapperUtil {
 	  public static double round(double value, int places) {
 	        if (places < 0) throw new IllegalArgumentException();
 
