@@ -1,0 +1,22 @@
+16:21:35.592 [main] INFO  com.dapper.engine.DapperEngine - Constructing control interface
+16:21:35.636 [main] INFO  c.d.e.d.DefaultGraphicsEngine - constructing graphics engine
+16:21:35.722 [main] INFO  com.dapper.engine.DapperEngine - Starting dapper engine
+16:21:35.726 [main] INFO  c.d.e.d.DefaultGraphicsEngine - Initializing graphics engine
+16:21:35.726 [main] INFO  com.dapper.engine.DapperEngine - Initializing Control interface
+16:21:35.726 [main] INFO  c.d.e.d.DefaultGraphicsEngine - Starting graphics engine
+16:21:37.935 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Initializing dapper engine
+16:21:37.936 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Reshaping dapper engine
+16:21:37.936 [main-Display-.windows_nil-1-EDT-1] INFO  c.d.e.d.DefaultGraphicsEngine - reshaping graphics engine
+16:21:37.936 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Reshaping control interface
+16:21:56.410 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (341, 200)
+16:21:56.682 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (430, 536)
+16:21:56.858 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (436, 515)
+16:21:57.034 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (480, 463)
+16:21:57.210 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (522, 276)
+16:21:57.402 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (414, 151)
+16:21:57.562 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (407, 149)
+16:21:57.754 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (500, 260)
+16:21:57.962 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (261, 531)
+16:21:58.138 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (64, 402)
+16:21:58.314 [main-FPSAWTAnimator-Timer0] DEBUG c.d.e.t.NewObjectGameEngine - Mouse click: (175, 299)
+16:21:59.179 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Disposing of dapper engine

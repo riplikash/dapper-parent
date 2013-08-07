@@ -6,15 +6,19 @@ import java.util.Queue;
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.dapper.engine.DapperEngine;
 import com.dapper.engine.data.interfaces.DapperControlInterface;
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
 import com.jogamp.newt.event.InputEvent;
 
 @Component
 public class DefaultControlInterface implements DapperControlInterface {
+	private static final Logger log = LoggerFactory.getLogger(DapperEngine.class);
 	public volatile Queue<InputEvent> commandQueue;
 	@Autowired
 	DapperGraphicsEngineInterface canvas;
@@ -22,19 +26,19 @@ public class DefaultControlInterface implements DapperControlInterface {
 	public DefaultControlInterface() {
 		super();
 		commandQueue = new LinkedList<InputEvent>();
-		System.out.println("Constructing control interface");
+		log.info("Constructing control interface");
 	}
 	
 	@Override
 	public void init() {
-		System.out.println("Initializing Control interface");
+		log.info("Initializing Control interface");
 		
 	}
 
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
-		System.out.println("Reshaping control interface");
+		log.info("Reshaping control interface");
 		
 	}
 

@@ -13,6 +13,8 @@ import java.util.Queue;
 
 import javax.media.opengl.GLAutoDrawable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,11 +25,13 @@ import com.dapper.engine.data.objects.SimpleFont;
 import com.dapper.engine.data.objects.SceneRoot;
 import com.dapper.engine.data.objects.TestControlSquare;
 import com.dapper.engine.default_implementations.DefaultControlInterface;
+import com.dapper.engine.default_implementations.DefaultGraphicsEngine;
 import com.jogamp.newt.event.InputEvent;
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.MouseEvent;
 @Component
 public class NewObjectGameEngine implements DapperGameEngineInterface {
+	private static final Logger log = LoggerFactory.getLogger(NewObjectGameEngine.class);
 	@Autowired 
 	DefaultControlInterface controlInterface;
 	@Autowired
@@ -53,9 +57,9 @@ public class NewObjectGameEngine implements DapperGameEngineInterface {
 				mouseEvent((MouseEvent)e);
 				break;
 			case WINDOW: 
-				System.out.println("Window Event");
+				log.info("Window Event");
 			case MONITOR:
-				System.out.println("Monitor Event");
+				log.info("Monitor Event");
 
 			default:
 				break;
@@ -71,7 +75,7 @@ public class NewObjectGameEngine implements DapperGameEngineInterface {
 	      {
 			
 	          case EVENT_MOUSE_CLICKED:
-	          	System.out.println("Mouse click: (" + e.getX() + ", " + e.getY() + ")");                	
+	          	log.debug("Mouse click: (" + e.getX() + ", " + e.getY() + ")");                	
 	              break;
 	          case EVENT_MOUSE_RELEASED:
 	          	
@@ -135,7 +139,7 @@ public class NewObjectGameEngine implements DapperGameEngineInterface {
         	  break;
         	  
           case VK_ESCAPE:
-        	  System.out.println("Escape");
+        	  log.info("Escape");
               break;	
 
         }

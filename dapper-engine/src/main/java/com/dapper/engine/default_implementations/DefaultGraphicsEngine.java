@@ -7,8 +7,11 @@ import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.dapper.engine.DapperEngine;
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
 import com.dapper.engine.data.objects.SceneRoot;
 import com.jogamp.newt.event.KeyListener;
@@ -20,6 +23,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.texture.Texture;
 
 public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
+	private static final Logger log = LoggerFactory.getLogger(DefaultGraphicsEngine.class);
 	@Autowired
 	public 
 	GLEventListener dapperEngine;
@@ -45,12 +49,12 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
      
     public DefaultGraphicsEngine() {    	 
  		super();
- 		System.out.println("constructing graphics engine");
+ 		log.info("constructing graphics engine");
  		
  	}
 	@Override
 	public void init() {
-		System.out.println("Initializing graphics engine");
+		log.info("Initializing graphics engine");
 
 	}
 	
@@ -58,7 +62,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 
 	@Override
 	public void start() {
-		System.out.println("Starting graphics engine");
+		log.info("Starting graphics engine");
 		GLProfile glProfile = GLProfile.getDefault(); 
 		
 
@@ -95,7 +99,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
-			System.out.println("reshaping graphics engine");
+			log.info("reshaping graphics engine");
 		
 	}
 	@Override

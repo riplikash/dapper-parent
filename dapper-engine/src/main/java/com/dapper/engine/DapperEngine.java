@@ -1,22 +1,20 @@
 package com.dapper.engine;
 
 import javax.media.opengl.GLAutoDrawable;
-import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.GLEventListener;
-import javax.media.opengl.GLProfile;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dapper.engine.data.interfaces.DapperControlInterface;
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
-import com.jogamp.newt.event.WindowAdapter;
-import com.jogamp.newt.event.WindowEvent;
-import com.jogamp.newt.opengl.GLWindow;
-import com.jogamp.opengl.util.FPSAnimator;
 @Component
 public class DapperEngine implements GLEventListener {
+	private static final Logger log = LoggerFactory.getLogger(DapperEngine.class);
+
 	@Autowired
 	DapperControlInterface controls;
 	@Autowired
@@ -25,12 +23,11 @@ public class DapperEngine implements GLEventListener {
 	DapperGameEngineInterface gameEngine;
 
 	DapperEngine() {
-		System.out.println("Constructing dapper engine");
-
+		
 	}
 	
 	public void start() {
-		System.out.println("Starting dapper engine");
+		log.info("Starting dapper engine");
 		gameEngine.init();
 		graphicsEngine.init();
 		controls.init();
@@ -41,12 +38,12 @@ public class DapperEngine implements GLEventListener {
 	
 	@Override
 	public void init(GLAutoDrawable drawable) {
-		System.out.println("Initializing dapper engine");
+		log.info("Initializing dapper engine");
 					
 	}
 	@Override
 	public void dispose(GLAutoDrawable drawable) {
-		System.out.println("Disposing of dapper engine");
+		log.info("Disposing of dapper engine");
 		
 	}
 	@Override
@@ -59,7 +56,7 @@ public class DapperEngine implements GLEventListener {
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
-		System.out.println("Reshaping dapper engine");
+		log.info("Reshaping dapper engine");
 		graphicsEngine.reshape(drawable, x, y, width, height);
 		gameEngine.reshape(drawable, x, y, width, height);
 		controls.reshape(drawable, x, y, width, height);
