@@ -177,7 +177,20 @@ public class Matrix {
     	double rad = Math.toRadians(deg) * -1;
 
     	return new double[][] {
-    			{Math.cos(rad), -Math.sin(rad), 0}, {Math.sin(rad), Math.cos(rad), 0}, {0,0,1}};
+    			{Math.cos(rad), -Math.sin(rad), 0}, 
+    			{Math.sin(rad), Math.cos(rad), 0}, 
+    			{0,0,1}};
+    }
+    
+    public static double[][] skew(double xAng, double yAng)
+    {
+    	xAng = Math.toRadians(xAng);
+    	yAng = Math.toRadians(yAng);
+    	return new double[][] {
+    			{1,Math.tan(xAng),0},
+    			{Math.tan(yAng),1,0},
+    			{0,0,1}
+    	};
     }
     
   
