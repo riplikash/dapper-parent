@@ -25,8 +25,6 @@ public class DapperSquare extends NewDapperObject {
 		double[] C = Matrix.multiply(finalTransformation, c);
 		double[] D = Matrix.multiply(finalTransformation, d);
 		
-		System.out.println(Matrix.toString(pos));
-		
 		gl.glBegin(GL.GL_TRIANGLES);
         gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
 

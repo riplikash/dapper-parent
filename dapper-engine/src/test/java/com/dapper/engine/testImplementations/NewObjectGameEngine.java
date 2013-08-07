@@ -19,6 +19,8 @@ import org.springframework.stereotype.Component;
 import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
 import com.dapper.engine.data.math.SimpleColor;
 import com.dapper.engine.data.objects.DapperSquare;
+import com.dapper.engine.data.objects.NewSimpleChar;
+import com.dapper.engine.data.objects.NewSimpleFont;
 import com.dapper.engine.data.objects.SceneRoot;
 import com.dapper.engine.data.objects.TestControlSquare;
 import com.dapper.engine.default_implementations.DefaultControlInterface;
@@ -73,23 +75,23 @@ public class NewObjectGameEngine implements DapperGameEngineInterface {
 	          	System.out.println("Mouse click: (" + e.getX() + ", " + e.getY() + ")");                	
 	              break;
 	          case EVENT_MOUSE_RELEASED:
-	          	System.out.println("Mosue Release");
+	          	
 	              break;
 	          case EVENT_MOUSE_DRAGGED:
-	          	System.out.println("Mouse Dragged");
+	          	
 	             
 	              break;
 	          case EVENT_MOUSE_ENTERED:
-	             System.out.println("Mouse Entered");
+	            
 	              break;
 	          case EVENT_MOUSE_EXITED:
-	        	  System.out.println("Mouse Exited");
+	        	
 	              break;
 	          case EVENT_MOUSE_PRESSED:
-	        	  System.out.println("Mouse Pressed: (" + e.getX() + ", " + e.getY() + ")");
+	        	
 	              break;
 	          case EVENT_MOUSE_WHEEL_MOVED:
-	        	  System.out.println("Mouse Wheel");
+	        	
 
 	              break;	          
 
@@ -170,6 +172,7 @@ public class NewObjectGameEngine implements DapperGameEngineInterface {
 		scene.addChild(new DapperSquare(0, 0, .5, .1, 0, SimpleColor.red));
 		scene.addChild(new DapperSquare(-1, 1, .2, .8, 0, SimpleColor.red));
 		scene.addChild(player);
+		scene.addChild(new NewSimpleFont("Hey, dude", 0,0, 10));
 	}
 
 	@Override
