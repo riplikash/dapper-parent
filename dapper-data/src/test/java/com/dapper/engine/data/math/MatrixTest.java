@@ -120,12 +120,25 @@ public class MatrixTest {
 		
 		double[][] t = Matrix.scale(2, 2);
 		double[] point ={1,1,1};
-		System.out.println("Scale\n" + Matrix.toString(point) + " by (2,2)\n" );
 		point = Matrix.multiply(t, point);
-		System.out.println("___________\n" + Matrix.toString(point));
+		System.out.println(Matrix.toString(point,2));
 		
 		assertEquals(point[0], 2, 0);
 		assertEquals(point[1], 2, 0);
 		
+	}
+	@Test
+	public void testRotate()
+	{
+		double[][] t = Matrix.rotation(90);
+		double[] point ={0,1,1};
+		point = Matrix.multiply(t, point);
+		assertEquals( 1,Util.round(point[0],2), 0);
+		assertEquals(0,Util.round(point[1],2),0);
+		point = Matrix.multiply(Matrix.rotation(180), point);
+		assertEquals(-1,Util.round(point[0],2), 0);
+		assertEquals(0,Util.round(point[1],2),0);
+		
+
 	}
 }

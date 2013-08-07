@@ -100,6 +100,24 @@ public class Matrix {
                 y[j] += (A[i][j] * x[i]);
         return y;
     }
+    
+    public static String toString(double[][] a, int roundTo)
+    {
+    	String rt = "";
+    	int height = a.length;
+    	int width = a[0].length;
+    	for (int y = 0; y < height; y++)
+    	{
+    		for (int x = 0; x < width; x++)
+    		{
+    			rt += Util.round(a[y][x], roundTo) + " ";
+    		}
+    		rt += "\n";
+    	}
+    	
+    	return rt;
+    	
+    }
 
     public static String toString(double[][] a) {
     	String rt = "";
@@ -118,7 +136,20 @@ public class Matrix {
     	
     	
     }
-    
+    public static String toString(double[] a, int roundTo) {
+    	String rt = "";
+    	int width = a.length;
+
+		for (int x = 0; x < width; x++)
+		{
+			rt += Util.round(a[x], roundTo) + " ";
+		}
+
+    	
+    	return rt;
+    	
+    	
+    }
     public static String toString(double[] a) {
     	String rt = "";
     	int width = a.length;
@@ -143,9 +174,13 @@ public class Matrix {
     }
     
     public static double[][] rotation(double deg) {
-    	double rad = Math.toRadians(deg);
+    	double rad = Math.toRadians(deg) * -1;
+
     	return new double[][] {
     			{Math.cos(rad), -Math.sin(rad), 0}, {Math.sin(rad), Math.cos(rad), 0}, {0,0,1}};
     }
+    
+  
+
 
 }
