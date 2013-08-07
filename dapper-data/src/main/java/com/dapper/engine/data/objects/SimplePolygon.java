@@ -6,6 +6,7 @@ import java.util.List;
 import javax.media.opengl.GL2;
 
 import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.math.ScenePosition;
 
 
 /**
@@ -29,6 +30,12 @@ public class SimplePolygon extends SimpleShape {
 
 	@Override
 	public void render(GL2 gl) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void render(GL2 gl, ScenePosition pos2) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,32 +1,32 @@
 package com.dapper.engine.data.math;
 
 public class ScenePosition {
-	public  double transformX;
-	public double transformY;
+	public  double translateX;
+	public double translateY;
 	public double scaleX;
 	public double scaleY;
 	public double rotation;
 	
 	public ScenePosition() {
-		transformX = 0;
-		transformY = 0;
-		scaleX = 0;
-		scaleY= 0;
+		translateX = 0;
+		translateY = 0;
+		scaleX = 1;
+		scaleY= 1;
 		rotation = 0;
 	}
 	
-	public ScenePosition(double transformX, double transformY, double scale, double rotation)
+	public ScenePosition(double translateX, double translateY, double scale, double rotation)
 	{
-		this.transformX = transformX;
-		this.transformY = transformY;
+		this.translateX = translateX;
+		this.translateY = translateY;
 		this.scaleX = scale;
 		this.scaleY = scale;
 		this.rotation = rotation;
 	}
-	public ScenePosition(double transformX, double transformY, double scaleX, double scaleY, double rotation)
+	public ScenePosition(double translateX, double translateY, double scaleX, double scaleY, double rotation)
 	{
-		this.transformX = transformX;
-		this.transformY = transformY;
+		this.translateX = translateX;
+		this.translateY = translateY;
 		this.scaleX = scaleX;
 		this.scaleY = scaleY;
 		this.rotation = rotation;
@@ -41,13 +41,13 @@ public class ScenePosition {
 		scale(s.getX(), s.getY());
 	}
 	
-	public void transform(double x, double y) {
-		transformX += x;
-		transformY += y;
+	public void translate(double x, double y) {
+		translateX += x;
+		translateY += y;
 	}
-	public void transform(Point2D transformation)
+	public void translate(Point2D translateation)
 	{
-		transform(transformation.getX(), transformation.getY());
+		translate(translateation.getX(), translateation.getY());
 	}
 	
 	public void rotate(double x) {
@@ -62,7 +62,7 @@ public class ScenePosition {
 	public Point2D apply(Point2D point)
 	{
 		
-		return point;
+		return Math2D.translate(Math2D.rotate(Math2D.scale(point, getScalePoint()), rotation), getTransformPoint());
 		
 	}
 	
@@ -73,7 +73,17 @@ public class ScenePosition {
 	
 	public Point2D getTransformPoint()
 	{
-		return new Point2D(transformX, transformY);
+		return new Point2D(translateX, translateY);
+	}
+
+	public ScenePosition combine(ScenePosition scenePos) {
+		ScenePosition newPos = new ScenePosition();
+		newPos.scaleX = this.scaleX * scenePos.scaleX;
+		newPos.scaleY = this.scaleY * scenePos.scaleY;
+		newPos.rotation = this.rotation + scenePos.rotation;
+		newPos.translateX = this.translateX + scenePos.translateX;
+		newPos.translateY = this.translateY + scenePos.translateY;
+		return newPos;
 	}
 	
 }

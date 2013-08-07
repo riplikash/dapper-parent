@@ -61,17 +61,19 @@ public class SimpleSquare extends SimpleShape{
         }
         gl.glEnd();
     }
+	@Override
+	public void render(GL2 gl, ScenePosition pos2) {
+		List<Point2D> displayList = getTransformedPoints(pos);
+    	gl.glBegin(GL.GL_TRIANGLES);
+        gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
+        for (Point2D point : displayList){          
+        	
+            gl.glVertex2d(point.getX(), point.getY());
+        }
+        gl.glEnd();
+		
+	}
     
-
-//    public void render(GL2 gl, ScenePosition pos)
-//    {
-//    	List<Point2D> displayList = getTransformedPoints();
-//    	gl.glBegin(GL.GL_TRIANGLES);
-//        gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
-//        for (Point2D point : displayList){          
-//        	
-//            gl.glVertex2d(point.getX(), point.getY());
-//        }
-//    }
+	
        
 }

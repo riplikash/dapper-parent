@@ -5,6 +5,7 @@ import java.util.List;
 import javax.media.opengl.GL2;
 
 import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.math.ScenePosition;
 
 public class DapperObject {
 	public SimpleShape shape;
@@ -19,13 +20,17 @@ public class DapperObject {
 		return shape.getDisplayList();
 	}
 	public void move(double xMove, double yMove) {
-		this.shape.pos.transform(xMove, yMove);
+		this.shape.pos.translate(xMove, yMove);
 		
 		
 	}
 
 	public void render(GL2 gl) {
 		shape.render(gl);
+	}
+	public void render(GL2 gl, ScenePosition pos) {
+		shape.render(gl, pos);
+		
 	}
 	
 }

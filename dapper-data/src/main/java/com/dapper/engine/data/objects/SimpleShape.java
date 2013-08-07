@@ -55,12 +55,13 @@ public abstract class SimpleShape {
         return rtPoints;
 
     }
-    public ArrayList<Point2D> getTransformedPoints(ScenePosition pos)
+    public ArrayList<Point2D> getTransformedPoints(ScenePosition scenePos)
     {
         ArrayList<Point2D> rtPoints = new ArrayList<Point2D>();
+        ScenePosition newPos = pos.combine(scenePos);
         for (Point2D point: points)
         {
-            rtPoints.add(Math2D.translate(Math2D.rotate(Math2D.scale(point, pos.getScalePoint()),  pos.rotation), pos.getTransformPoint()));
+        	rtPoints.add(newPos.apply(point));
         }
         return rtPoints;
 
@@ -73,4 +74,6 @@ public abstract class SimpleShape {
 
 
 	abstract public void render(GL2 gl) ;
+
+	abstract public void render(GL2 gl, ScenePosition pos2);
 }

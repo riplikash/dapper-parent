@@ -5,27 +5,33 @@ import java.util.List;
 
 import javax.media.opengl.GL2;
 
-import com.dapper.engine.data.math.Point2D;
 import com.dapper.engine.data.math.ScenePosition;
 
 public class DapperSceneGraph {
 	ScenePosition pos;
 	
-	List<SimpleSquare> currentItems;
+	List<DapperObject> displayObjects;
 	
-	DapperSceneGraph() {
+	
+	public DapperSceneGraph() {
 		pos = new ScenePosition();
-		currentItems = new ArrayList<SimpleSquare>();
+		displayObjects = new ArrayList<DapperObject>();
 	}
 	DapperSceneGraph(double transformX, double transformY, double scale, double rotation) 
 	{
 		pos = new ScenePosition(transformX, transformY, scale, rotation);
 	}
 	
+	public void addObject(DapperObject obj) {
+		displayObjects.add(obj);
+	}
+	
 	public void render(GL2 gl) {
-		for (SimpleSquare obj: currentItems)
+		for (DapperObject obj: displayObjects)
 		{
-//			obj.render(gl, pos);
+			
+			obj.render(gl, pos);
+			obj.render(gl);
 		}
 	};
 	
