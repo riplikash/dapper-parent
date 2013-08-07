@@ -17,6 +17,13 @@ public class SimpleColor extends Vector4D{
         C = b;
         D = 1.0;
     }
+    public SimpleColor(double r, double g, double b, double a)
+    {
+        A = r;
+        B = g;
+        C = b;
+        D = a;
+    }
     public SimpleColor()
     {
         A = 0.0;
@@ -35,7 +42,7 @@ public class SimpleColor extends Vector4D{
     public final static SimpleColor WHITE = white;
     public final static SimpleColor black= new SimpleColor(0,0,0);
     public final static SimpleColor BLACK = black;
-
+    public final static SimpleColor clear = new SimpleColor(0,0,0,0);
 
     public double getRed() {
         return (A * 255);

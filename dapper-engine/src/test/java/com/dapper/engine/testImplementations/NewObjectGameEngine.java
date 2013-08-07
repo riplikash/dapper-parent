@@ -1,23 +1,5 @@
 package com.dapper.engine.testImplementations;
 
-import java.util.Queue;
-
-import javax.media.opengl.GLAutoDrawable;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
-import com.dapper.engine.data.math.Point2D;
-import com.dapper.engine.data.math.SimpleColor;
-import com.dapper.engine.data.objects.DapperObject;
-import com.dapper.engine.data.objects.DapperSceneGraph;
-import com.dapper.engine.data.objects.SimpleSquare;
-import com.dapper.engine.default_implementations.DefaultControlInterface;
-import com.jogamp.newt.event.InputEvent;
-import com.jogamp.newt.event.KeyEvent;
-import com.jogamp.newt.event.MouseEvent;
-
 import static com.jogamp.newt.event.KeyEvent.*;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_CLICKED;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_DRAGGED;
@@ -26,15 +8,32 @@ import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_EXITED;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_PRESSED;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_RELEASED;
 import static com.jogamp.newt.event.MouseEvent.EVENT_MOUSE_WHEEL_MOVED;
+
+import java.util.Queue;
+
+import javax.media.opengl.GLAutoDrawable;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.dapper.engine.data.interfaces.DapperGameEngineInterface;
+import com.dapper.engine.data.math.SimpleColor;
+import com.dapper.engine.data.objects.DapperSquare;
+import com.dapper.engine.data.objects.SceneRoot;
+import com.dapper.engine.data.objects.TestControlSquare;
+import com.dapper.engine.default_implementations.DefaultControlInterface;
+import com.jogamp.newt.event.InputEvent;
+import com.jogamp.newt.event.KeyEvent;
+import com.jogamp.newt.event.MouseEvent;
 @Component
-public class SceneGraphGameEngine implements DapperGameEngineInterface {
+public class NewObjectGameEngine implements DapperGameEngineInterface {
 	@Autowired 
 	DefaultControlInterface controlInterface;
-	
 	@Autowired
-	DapperSceneGraph sceneGraph;
+	SceneRoot scene;
 
-	public SceneGraphGameEngine() {
+
+	public NewObjectGameEngine() {
 
 	}
 	
@@ -115,6 +114,25 @@ public class SceneGraphGameEngine implements DapperGameEngineInterface {
           case VK_RIGHT:
         	  player.move(.1,0);
               break;
+          case VK_Q:
+        	  player.rotate((double)-5);
+        	  break;
+          case VK_E:
+        	  player.rotate((double)5);
+        	  break;
+          case VK_W:
+        	  player.skew(0.0,5);
+        	  break;
+          case VK_A:
+        	  player.skew(-5, 0.0);
+        	  break;
+          case VK_S:
+        	  player.skew(0.0, -5);
+        	  break;
+          case VK_D:
+        	  player.skew(5,0.0);
+        	  break;
+        	  
           case VK_ESCAPE:
         	  System.out.println("Escape");
               break;	
@@ -141,15 +159,17 @@ public class SceneGraphGameEngine implements DapperGameEngineInterface {
 		return EventType.INVALID;
 	}
 	
-
-	DapperObject player;
-
+	TestControlSquare player;
+	
 	@Override
 	public void init() {
-		player = new DapperObject();
-		player.id = 0;
-		player.shape = new SimpleSquare(new Point2D(0,0), new Point2D(.5,.5), SimpleColor.BLUE);
-		sceneGraph.addObject(player);
+		player = new TestControlSquare(-.3, .5, .1, .1, 0, SimpleColor.green);
+
+		DapperSquare square = new DapperSquare(-.3, .5, .1, .1, 0, SimpleColor.BLUE);
+		scene.addChild(square);
+		scene.addChild(new DapperSquare(0, 0, .5, .1, 0, SimpleColor.red));
+		scene.addChild(new DapperSquare(-1, 1, .2, .8, 0, SimpleColor.red));
+		scene.addChild(player);
 	}
 
 	@Override

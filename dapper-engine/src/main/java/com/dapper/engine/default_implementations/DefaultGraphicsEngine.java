@@ -1,9 +1,5 @@
 package com.dapper.engine.default_implementations;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -12,13 +8,9 @@ import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import com.dapper.engine.data.DapperEngineSettings;
 import com.dapper.engine.data.interfaces.DapperGraphicsEngineInterface;
-import com.dapper.engine.data.math.Point2D;
-import com.dapper.engine.data.objects.DapperObject;
-import com.dapper.engine.data.objects.SimpleShape;
+import com.dapper.engine.data.objects.NewDapperObject;
 import com.jogamp.newt.event.KeyListener;
 import com.jogamp.newt.event.MouseListener;
 import com.jogamp.newt.event.WindowAdapter;
@@ -26,8 +18,6 @@ import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.texture.Texture;
-import com.jogamp.opengl.util.texture.TextureData;
-import com.jogamp.opengl.util.texture.TextureIO;
 
 public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Autowired
@@ -39,7 +29,8 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Autowired
 	public MouseListener mouseListener;
 	@Autowired
-	public DefaultScene scene;
+	NewDapperObject root;
+
 	
 	protected GL2 gl;
 	
@@ -112,11 +103,12 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 		
 		gl = drawable.getGL().getGL2();
 		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
-		for (DapperObject obj: scene.getDisplayScene())
-		{
-			obj.render(gl);
-			
-		}
+		root.render(gl);
+//		for (DapperObject obj: scene.getDisplayScene())
+//		{
+//			obj.render(gl);
+//			
+//		}
 	}
 
 	

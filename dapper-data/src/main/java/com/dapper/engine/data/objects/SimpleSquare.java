@@ -18,23 +18,22 @@ import com.dapper.engine.data.math.SimpleColor;
  * To change this template use File | Settings | File Templates.
  */
 public class SimpleSquare extends SimpleShape{
+	
 	public SimpleSquare() {};
     public SimpleSquare(Point2D translation, Point2D scale)
     {
         super(translation, scale);
-        points = new ArrayList<Point2D>();
-        points.add(new Point2D(0, 0));
-        points.add(new Point2D(1, 0));
-        points.add(new Point2D(0, -1));
-
-        points.add(new Point2D(0, -1));
-        points.add(new Point2D(1, 0));
-        points.add(new Point2D(1, -1));
+        addStandardPoints();
     }
     public SimpleSquare(Point2D translation, Point2D scale, SimpleColor color)
     {
         super(translation, scale, color);
-        points = new ArrayList<Point2D>();
+        addStandardPoints();
+    }
+    
+    private void addStandardPoints()
+    {
+    	points = new ArrayList<Point2D>();
         points.add(new Point2D(0, 0));
         points.add(new Point2D(1, 0));
         points.add(new Point2D(0,-1));
@@ -44,7 +43,16 @@ public class SimpleSquare extends SimpleShape{
         points.add(new Point2D(1, -1));
     }
 
-    @Override
+    public SimpleSquare(double transformationX, double transformationY, double scale, double rotation, SimpleColor color) {
+    	super(new Point2D(transformationX, transformationY), new Point2D(scale, scale), color );
+    	addStandardPoints();
+    	
+	}
+    public SimpleSquare(double transformationX, double transformationY, double scale, SimpleColor color) {
+    	super(new Point2D(transformationX, transformationY), new Point2D(scale, scale), color );
+    	addStandardPoints();
+	}
+	@Override
     public List<Point2D> getDisplayList() {
         return getTransformedPoints();
     }

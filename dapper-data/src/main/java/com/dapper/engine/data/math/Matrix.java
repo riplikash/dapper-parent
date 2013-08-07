@@ -2,6 +2,17 @@ package com.dapper.engine.data.math;
 
 public class Matrix {
 
+	public static double[][] copy(double[][] m)
+	{
+		double[][] rt = new double[m.length][m[0].length];
+		for (int i = 0; i < m.length; i++)
+			for (int j = 0; j < m.length; j++)
+			{
+				rt[i][j] = m[i][j];
+			}
+		return rt;
+	}
+	
     // return a random m-by-n matrix with values between 0 and 1
     public static double[][] random(int m, int n) {
         double[][] C = new double[m][n];
@@ -165,11 +176,11 @@ public class Matrix {
     	
     }
     
-    public static double[][] translation(int x, int y) {
+    public static double[][] translation(double x, double y) {
     	return new double[][] {{1,0,x},{0,1,y},{0,0,1}};
     }
     
-    public static double[][] scale(int x, int y) {
+    public static double[][] scale(double x, double y) {
     	return new double[][] {{x,0,0},{0,y,0},{0,0,1}};
     }
     
@@ -192,6 +203,16 @@ public class Matrix {
     			{0,0,1}
     	};
     }
+
+
+	public static double[][] new2DPosition(double x, double y, double scaleX,
+			double scaleY, double rotation) {
+		double[][] rt = identity(3);
+		rt = multiply(rt, Matrix.rotation(rotation));
+		rt = multiply(rt, Matrix.translation(x, y));
+		rt = multiply(rt, Matrix.scale(scaleX, scaleY));
+		return rt;
+	}
     
   
 

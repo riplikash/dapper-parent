@@ -31,7 +31,7 @@ public class SearchGrid {
 			{
 				
 				tGraphic = new SimpleSquare(new Point2D(getCoord(x), getCoord(y) * -1), new Point2D(.18, .18), SimpleColor.BLUE);
-				square = new GridSquare(1, tGraphic, (int)(x * 10 + y));
+				square = new GridSquare(1, getCoord(x), getCoord(y) * -1, .18, .18, (int)(x * 10 + y));
 				grid[(int)x][(int)y] = square;
 				scene.add(square);
 				String s = "(" + new Double(x).toString().charAt(0) + "," + new Double(y).toString().charAt(0) + ")";

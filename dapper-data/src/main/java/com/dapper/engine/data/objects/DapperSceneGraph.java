@@ -5,34 +5,45 @@ import java.util.List;
 
 import javax.media.opengl.GL2;
 
+import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.ScenePosition;
 
-public class DapperSceneGraph {
-	ScenePosition pos;
-	
-	List<DapperObject> displayObjects;
-	
-	
+public class DapperSceneGraph extends DapperObject {
+	protected ScenePosition pos;
+	protected List<DapperSceneGraph> children;
 	public DapperSceneGraph() {
-		pos = new ScenePosition();
-		displayObjects = new ArrayList<DapperObject>();
+		pos = new ScenePosition();	
+		children = new ArrayList<DapperSceneGraph>();
 	}
+	
 	DapperSceneGraph(double transformX, double transformY, double scale, double rotation) 
 	{
 		pos = new ScenePosition(transformX, transformY, scale, rotation);
 	}
 	
-	public void addObject(DapperObject obj) {
-		displayObjects.add(obj);
+	@Override
+	public void render(GL2 gl) {
+		if (shape != null)
+			shape.render(gl, pos);
+		for (DapperSceneGraph obj: children)
+		{
+			obj.render(gl, pos);
+		}
 	}
 	
-	public void render(GL2 gl) {
-		for (DapperObject obj: displayObjects)
+	@Override
+	public void render(GL2 gl, ScenePosition parentPos) {
+		if (shape != null)
+			shape.render(gl, pos);
+		for (DapperSceneGraph obj: children)
 		{
-			
-			obj.render(gl, pos);
-			obj.render(gl);
+			obj.render(gl, parentPos.combine(pos));
 		}
+	}
+
+	public void add(DapperSceneGraph newObj) {
+		children.add(newObj);
+		
 	};
 	
 }

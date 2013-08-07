@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import javax.media.opengl.GL2;
 
 import com.dapper.engine.data.math.Point2D;
+import com.dapper.engine.data.math.SimpleColor;
 
-public class SimpleFont extends DapperObject{
+public class SimpleFont extends NewDapperObject {
 	
 	double left, right, top, bottom;
 	ArrayList<SimpleChar> charList;
+	public SimpleFont(double x, double y, double scaleX, double scaleY, double rotation, SimpleColor color) {
+		
+		
+	}
 	public SimpleFont(String s, Point2D startPoint, double size) {
 		charList = new ArrayList<SimpleChar>();
 		// 10pt = 1/10th the screen
@@ -29,6 +34,12 @@ public class SimpleFont extends DapperObject{
 	public void render(GL2 gl) {
 		for (SimpleChar c: charList)
 			c.render(gl);
+	}
+
+	@Override
+	public void render(GL2 gl, double[][] pos) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

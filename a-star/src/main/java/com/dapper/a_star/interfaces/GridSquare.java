@@ -16,14 +16,12 @@ public class GridSquare extends DapperObject {
 	SimpleFont countFace;
 	
 	
-	public GridSquare(int weight, SimpleSquare square, int id) {
-		super(square, id);
-		square.color = SimpleColor.red;		
+	public GridSquare(int weight, double x, double y, double scaleX, double scaleY, int id) {
+		super(new SimpleSquare(new Point2D(x, y), new Point2D(scaleX, scaleY), SimpleColor.red), id);
 		this.weight = weight;
-		shape = square;
 		processed = false;
 		String temp = new Integer(weight).toString();
-		Point2D translation = square.pos.getTransformPoint();
+		Point2D translation = new Point2D(x, y);
 		countFace = new SimpleFont(temp, translation, 7);
 		
 	}
@@ -50,7 +48,7 @@ public class GridSquare extends DapperObject {
 		printPoints();
 		weight++;
 		String temp = new Integer(weight).toString();
-		Point2D translation = shape.pos.getTransformPoint();
+		Point2D translation = null;//shape.pos.getTranslatePoint();
 		countFace = new SimpleFont(temp, translation, 7);
 		if (processed)
 		{

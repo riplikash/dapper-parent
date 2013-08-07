@@ -50,7 +50,8 @@ public abstract class SimpleShape {
         
         for (Point2D point: points)
         {
-            rtPoints.add(Math2D.translate(Math2D.rotate(Math2D.scale(point, pos.getScalePoint()),  pos.rotation), pos.getTransformPoint()));
+            rtPoints.add(pos.apply(point));
+            
         }
         return rtPoints;
 
