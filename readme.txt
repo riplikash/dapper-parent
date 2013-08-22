@@ -4,7 +4,7 @@
 
 ABOUT
 The Dapper Engine is just a small side project of mine for learning new 
-technologies in a moderately stable and portable enviroment using one of
+technologies in a moderately stable and portable environment using one of
 my favorite aspects of software as a focus: interactive computer graphics.
 
 While many of the various free systems out there have more features, that
