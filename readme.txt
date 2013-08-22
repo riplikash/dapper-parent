@@ -1,6 +1,8 @@
-*        Dapper Engine           
+**********************************
+*        Dapper Engine           *
 * An OpenGL "game" engine using: *  
-* Java, Spring, and Maven
+* Java, Spring, and Maven        *
+**********************************
 
 ABOUT
 The Dapper Engine is just a small side project of mine for learning new 
