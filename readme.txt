@@ -18,10 +18,22 @@ Maven2 build system
 Simple 2d font system
 
 INSTALLATION
-The Dapper Engine uses maven to provide fairly simple setup in any maven build 
-enviroment. On my end I typicaly just impot it as a maven project in SpringSource
-Tools Suite or Intellij. A simple Maven install is typically enough to get things 
-up and running.
+The Dapper Engine uses maven to provide fairly simple setup in any maven 
+build environment. You can either import it as a maven project into a maven
+compatible IDE (Intellij or Eclipse, for example) or build it from the 
+command line by running 'mvn clean install' in the dapper-parent directory 
+(providing you have maven installed on your computer). A simple Maven 
+install is typically enough to get things up and running, provided you 
+have maven and java 1.7 sdk/jre installed.
 
-There currently are no stand alone applications. I'm still mainly focused on it as
-a library. The unit tests in the DapperEngine module are my preferred way to run things.
+RUNNING DEMOS
+There are two major parts to the project: the engine, and a small application 
+called a_star. The engine is made up of dapper-data and dapper-engine. 
+"dapper-data: contains all of the primitives, interfaces, and mathematical 
+calculations. "dappe-engine" implements the interfaces of dapper-data into 
+with default objects and has a test running the system.
+
+The other folder is a-star, which is an example project using the dapper 
+engine. There is an executable in the target/a_star folder. The program
+contains a simple grid/graphs of nodes whose weight increments when clicked 
+on. It is primarily used to practice graph algorithms. 
