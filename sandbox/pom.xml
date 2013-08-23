@@ -1,8 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>dapper-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <parent>
+    <groupId>com.dapper</groupId>
+    <artifactId>dapper-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>sandbox</artifactId>
+  <name>sandbox</name>
+  <url>http://maven.apache.org</url>
+  
   <properties>
 
 		<!-- Generic properties -->
@@ -26,19 +34,7 @@
 	</properties>
 	
 	<dependencies>
-		<!-- Spring and Transactions -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring-framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring-framework.version}</version>
-		</dependency>
-
-		<!-- Logging with SLF4J & LogBack -->
+	<!-- Logging -->
 		<dependency>
 		  <groupId>org.slf4j</groupId>
 		  <artifactId>slf4j-api</artifactId>
@@ -56,6 +52,18 @@
 		  <artifactId>logback-core</artifactId>
 		  <version>${logback.version}</version>
 		 </dependency>
+		<!-- Spring and Transactions -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
 
 		<!-- Hibernate -->
 		<dependency>
@@ -75,11 +83,12 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.6</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		
-        <dependency>
+		<!--  open gl dependencies -->
+		        <dependency>
             <groupId>org.jogamp.gluegen</groupId>
             <artifactId>gluegen-rt-main</artifactId>
             <version>2.0.2</version>
@@ -89,22 +98,31 @@
             <artifactId>jogl-all-main</artifactId>
             <version>2.0.2</version>
         </dependency>
+        
+        <!-- project dependencies -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.6</version>
-        </dependency>
-
+		        	<groupId>com.dapper</groupId>
+		        	<artifactId>dapper-data</artifactId>
+		        	<version>${parent.version}</version>
+		        </dependency>
+		        <dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		    <version>1.6.12</version>
+		</dependency>
 	</dependencies>	
-	<packaging>pom</packaging>
-  <modules>
+	<build>
+		<plugins>
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+			<source>1.7</source>
+			<target>1.7</target>
+			</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-  <module>dapper-data</module>
-  <module>dapper-engine</module>
-  
-  
-    <module>a-star</module>
-    <module>sandbox</module>
-  </modules>
-  <groupId>com.dapper</groupId>
+
 </project>
