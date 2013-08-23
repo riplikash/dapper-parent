@@ -168,12 +168,8 @@ public class Matrix {
 		for (int x = 0; x < width; x++)
 		{
 			rt += a[x] + " ";
-		}
-
-    	
+		}	
     	return rt;
-    	
-    	
     }
     
     public static double[][] translation(double x, double y) {

@@ -42,6 +42,9 @@ public class SimpleColor extends Vector4D{
     public final static SimpleColor WHITE = white;
     public final static SimpleColor black= new SimpleColor(0,0,0);
     public final static SimpleColor BLACK = black;
+    public final static SimpleColor LIGHT_GREY = new SimpleColor(.75,.75,.75);
+    public final static SimpleColor MED_GREY = new SimpleColor(.5,.5,.5);
+    public final static SimpleColor DARK_GREY = new SimpleColor(.25,.25,.25);
     public final static SimpleColor clear = new SimpleColor(0,0,0,0);
 
     public double getRed() {

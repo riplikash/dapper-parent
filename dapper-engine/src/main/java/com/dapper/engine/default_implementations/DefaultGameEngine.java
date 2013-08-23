@@ -102,7 +102,7 @@ public class DefaultGameEngine implements DapperGameEngineInterface {
 		
 	}
 
-	private void keyboardEvent(KeyEvent e) {
+	protected void keyboardEvent(KeyEvent e) {
 		switch (e.getKeyCode())
       {
 		

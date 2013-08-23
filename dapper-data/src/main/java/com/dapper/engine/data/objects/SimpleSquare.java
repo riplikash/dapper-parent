@@ -21,7 +21,7 @@ public class SimpleSquare extends DapperObject {
 
 	@Override
 	public void render(GL2 gl, double[][] pos) {
-		double[][] finalTransformation = Matrix.multiply(pos, this.pos);
+		double[][] finalTransformation = getTransformedPosition(pos);
 		double[] A = Matrix.multiply(finalTransformation, a);
 		double[] B = Matrix.multiply(finalTransformation, b);
 		double[] C = Matrix.multiply(finalTransformation, c);

@@ -1,4 +1,4 @@
-package com.dapper.a_star.interfaces;
+package com.dapper.a_star.objects;
 
 import javax.media.opengl.GL2;
 
@@ -49,7 +49,7 @@ public class GridSquare extends DapperObject {
 
 	@Override
 	public void render(GL2 gl, double[][] pos) {
-		double[][] finalTransformation = Matrix.multiply(pos, this.pos);
+		double[][] finalTransformation = getTransformedPosition(pos);
 		square.render(gl, finalTransformation);
 		countFace.render(gl, finalTransformation);
 		

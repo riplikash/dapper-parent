@@ -43,7 +43,7 @@ public class DefaultControlInterface implements DapperControlInterface {
 	}
 
 	@Override
-	public void addCommand(InputEvent event) {		
+	public void addCommand(InputEvent event) {
 		commandQueue.add(event);	
 	}
 
@@ -54,9 +54,7 @@ public class DefaultControlInterface implements DapperControlInterface {
 
 	@Override
 	public void hitCheck(int x, int y) {
-		GL gl = canvas.getGlWindow().getGL();
-		
-		
+		GL gl = canvas.getGlWindow().getGL();	
 	}
 	
 	

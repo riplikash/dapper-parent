@@ -10,8 +10,8 @@ import com.dapper.engine.data.math.SimpleColor;
 
 public abstract class DapperObject {
 	protected double[][] pos;
-	SimpleColor color;
-	List<DapperObject> children;
+	protected SimpleColor color;
+	protected List<DapperObject> children;
 
 	public DapperObject() {
 		pos = Matrix.identity(3);	
@@ -29,11 +29,22 @@ public abstract class DapperObject {
 	public void render(GL2 gl) {
 		render(gl, Matrix.identity(3));
 	};
-	
+	public double[][] getTransformedPosition(double[][] d)
+	{
+//		System.out.println(Matrix.toString(Matrix.multiply(d,  this.pos)));
+		return Matrix.multiply(d, this.pos);	
+	}
 	public void addChild(DapperObject c)
 	{
 		children.add(c);
 	}
+	
+	public void transform(double[][] newP)
+	{
+		pos = Matrix.multiply(pos, newP);
+	}
+
+	
 
 
 }

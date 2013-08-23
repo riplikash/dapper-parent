@@ -23,3 +23,25 @@
 11:26:12.275 [main] INFO  com.dapper.engine.DapperEngine - Constructing control interface
 11:26:12.312 [main] INFO  c.d.e.d.DefaultGraphicsEngine - constructing graphics engine
 11:26:12.397 [main] INFO  com.dapper.engine.DapperEngine - Starting dapper engine
+12:51:30.274 [main] INFO  com.dapper.engine.DapperEngine - Constructing control interface
+12:51:30.310 [main] INFO  c.d.e.d.DefaultGraphicsEngine - constructing graphics engine
+12:51:30.383 [main] INFO  com.dapper.engine.DapperEngine - Starting dapper engine
+12:51:30.386 [main] INFO  c.d.e.d.DefaultGraphicsEngine - Initializing graphics engine
+12:51:30.386 [main] INFO  com.dapper.engine.DapperEngine - Initializing Control interface
+12:51:30.386 [main] INFO  c.d.e.d.DefaultGraphicsEngine - Starting graphics engine
+12:51:35.606 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Initializing dapper engine
+12:51:35.607 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Reshaping dapper engine
+12:51:35.607 [main-Display-.windows_nil-1-EDT-1] INFO  c.d.e.d.DefaultGraphicsEngine - reshaping graphics engine
+12:51:35.607 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Reshaping control interface
+12:51:39.841 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Disposing of dapper engine
+12:52:06.428 [main] INFO  com.dapper.engine.DapperEngine - Constructing control interface
+12:52:06.480 [main] INFO  c.d.e.d.DefaultGraphicsEngine - constructing graphics engine
+12:52:06.581 [main] INFO  com.dapper.engine.DapperEngine - Starting dapper engine
+12:52:06.584 [main] INFO  c.d.e.d.DefaultGraphicsEngine - Initializing graphics engine
+12:52:06.584 [main] INFO  com.dapper.engine.DapperEngine - Initializing Control interface
+12:52:06.584 [main] INFO  c.d.e.d.DefaultGraphicsEngine - Starting graphics engine
+12:52:08.627 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Initializing dapper engine
+12:52:08.627 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Reshaping dapper engine
+12:52:08.627 [main-Display-.windows_nil-1-EDT-1] INFO  c.d.e.d.DefaultGraphicsEngine - reshaping graphics engine
+12:52:08.628 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Reshaping control interface
+12:52:09.814 [main-Display-.windows_nil-1-EDT-1] INFO  com.dapper.engine.DapperEngine - Disposing of dapper engine

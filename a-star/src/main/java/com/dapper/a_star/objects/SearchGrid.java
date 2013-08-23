@@ -1,8 +1,9 @@
-package com.dapper.a_star.interfaces;
+package com.dapper.a_star.objects;
 
 
 import javax.media.opengl.GL2;
 
+import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.objects.DapperObject;
 
 public class SearchGrid extends DapperObject {
@@ -26,9 +27,11 @@ public class SearchGrid extends DapperObject {
 	
 	@Override
 	public void render(GL2 gl, double[][] pos) {
+		double[][] finalTransformation = getTransformedPosition(pos);
 		for (int x = 0; x < 10; x++)
 			for (int y = 0; y < 10; y++)
-				grid[x][y].render(gl, pos);
+				grid[x][y].render(gl, finalTransformation);
 		
 	}
+
 }

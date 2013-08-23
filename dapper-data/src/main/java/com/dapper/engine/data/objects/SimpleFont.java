@@ -36,9 +36,10 @@ public class SimpleFont extends DapperObject {
 	
 	@Override
 	public void render(GL2 gl, double[][] pos) {
+		double[][] finalPosition = getTransformedPosition(pos);
 		for (SimpleChar c: charList)
 		{
-			c.render(gl, pos);
+			c.render(gl, finalPosition);
 		}
 	}
 	
