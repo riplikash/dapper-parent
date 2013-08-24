@@ -25,7 +25,9 @@ public abstract class DapperObject {
 	public DapperObject(double[][] newPos) {
 		pos = newPos;
 	}
-	public abstract void render(GL2 gl, double[][] pos);
+	public void render(GL2 gl, double[][] pos) {
+		renderChildren(gl, pos);
+	}
 	public void render(GL2 gl) {
 		render(gl, Matrix.identity(3));
 	};
@@ -42,6 +44,16 @@ public abstract class DapperObject {
 	public void transform(double[][] newP)
 	{
 		pos = Matrix.multiply(pos, newP);
+	}
+	public void init(GL2 gl) {
+		for (DapperObject d : children)
+			d.init(gl);
+	}
+	public void renderChildren(GL2 gl, double[][] pPos)
+	{
+		double[][] finalTransformation = getTransformedPosition(pPos);
+		for (DapperObject d : children)
+			d.render(gl, finalTransformation);	
 	}
 
 	

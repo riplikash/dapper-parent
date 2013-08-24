@@ -18,20 +18,13 @@ public class SearchGrid extends DapperObject {
 		{
 			for (double x = 0; x < 10; x++)
 			{
-				grid[(int)x][(int)y] = new GridSquare(1, getCoord(x), getCoord(y) * -1, .18, .18);					
+				grid[(int)x][(int)y] = new GridSquare(1, getCoord(x), getCoord(y) * -1, .18, .18);
+				children.add(grid[(int)x][(int)y]);
 			}
 		}
 	}
 	
 	double getCoord(double d) {	return (((d/10)*2)-1) + 0.01 + .09; }
-	
-	@Override
-	public void render(GL2 gl, double[][] pos) {
-		double[][] finalTransformation = getTransformedPosition(pos);
-		for (int x = 0; x < 10; x++)
-			for (int y = 0; y < 10; y++)
-				grid[x][y].render(gl, finalTransformation);
-		
-	}
+
 
 }

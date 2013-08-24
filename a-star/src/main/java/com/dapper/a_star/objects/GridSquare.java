@@ -21,6 +21,8 @@ public class GridSquare extends DapperObject {
 		String temp = new Integer(weight).toString();
 		square = new SimpleSquare(0,0,1,1,0,SimpleColor.green);
 		countFace = new SimpleFont(temp, 0, 0, .5, .5, 0, SimpleColor.white);
+		addChild(square);
+		addChild(countFace);
 		
 	}
 	

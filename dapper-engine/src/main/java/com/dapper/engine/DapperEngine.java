@@ -28,9 +28,7 @@ public class DapperEngine implements GLEventListener {
 	
 	public void start() {
 		log.info("Starting dapper engine");
-		gameEngine.init();
-		graphicsEngine.init();
-		controls.init();
+		
 		gameEngine.start();
 		graphicsEngine.start();		
 	
@@ -38,6 +36,9 @@ public class DapperEngine implements GLEventListener {
 	
 	@Override
 	public void init(GLAutoDrawable drawable) {
+		gameEngine.init();
+		graphicsEngine.init(drawable);
+		controls.init();
 		log.info("Initializing dapper engine");
 					
 	}

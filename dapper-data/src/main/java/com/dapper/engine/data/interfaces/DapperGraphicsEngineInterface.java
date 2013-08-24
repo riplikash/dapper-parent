@@ -7,7 +7,7 @@ import com.jogamp.newt.opengl.GLWindow;
 
 public interface DapperGraphicsEngineInterface {	
 
-	public void init();
+	public void init(GLAutoDrawable drawable);
 
 	public void start();
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,

@@ -53,8 +53,48 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
  		
  	}
 	@Override
-	public void init() {
+	public void init(GLAutoDrawable drawable) {
 		log.info("Initializing graphics engine");
+		 GL2 gl = drawable.getGL().getGL2();
+
+	      // Be carefull with debug, it can cause errors.
+	      //drawable.setGL( new DebugGL(drawable.getGL() ));
+	      //System.out.println("Init GL is " + gl.getClass().getName());
+
+	      // On some systems the reshape call does not seem to 
+	      // happen automatically on init.
+	      // Set the projection and viewport.
+	      reshape( drawable, 0, 0, windowWidth, windowHeight );
+
+	      gl.glClearColor( 0f, 0f, 0f, 0.0f );
+	      //gl.glClearColor( 1f, 1f, 1f, 0.0f );
+
+	      // Really Nice Perspective Calculations
+	      //gl.glHint(GL.GL_PERSPECTIVE_CORRECTION_HINT, GL.GL_NICEST);  
+	      // GL.GL_FRONT[_AND_BACK], GL.GL_LINE, GL.GL_FILL
+//	      gl.glPolygonMode( GL2.GL_FRONT_AND_BACK, GL2.GL_LINE );
+
+//	      gl.glEnable( GL2.GL_DEPTH_TEST );
+	      //gl.glDepthFunc(GL.GL_LEQUAL);
+	      gl.glEnable( GL2.GL_AUTO_NORMAL );
+	      //gl.glEnable(GL.GL_NORMALIZE);
+	      //gl.glShadeModel( GL.GL_FLAT );
+	      gl.glShadeModel( GL2.GL_SMOOTH );
+	      
+	      //drawingBasics.initAliasingAndFog( gl, true, false );
+	      //blend.init( gl );
+	      //light.init( gl );
+	      //font.init( gl );      
+	      //solarSystem.initDisplayLists( gl, glu );
+	      //imaging.init( width, height );
+	      //imaging.loadImage( null ); // Load default image.
+	      //texturing.init( gl, glu );
+	      //texture3D.init( gl );
+	      //modelLoaderOBJ.init( gl );
+	      //particleSystem.init( gl );
+	      //vertexArray.init( gl );
+	      
+	      root.init(gl);
 
 	}
 	
@@ -63,10 +103,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Override
 	public void start() {
 		log.info("Starting graphics engine");
-		GLProfile glProfile = GLProfile.getDefault(); 
-		
-
-		
+		GLProfile glProfile = GLProfile.getDefault(); 		
         GLCapabilities glCapabilities = new GLCapabilities(glProfile); 
         glWindow = GLWindow.create(glCapabilities);
         fpsAnimator = new FPSAnimator(glWindow, FPS, true);

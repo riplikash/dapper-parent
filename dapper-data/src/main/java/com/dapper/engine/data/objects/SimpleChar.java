@@ -18,7 +18,6 @@ import com.jogamp.opengl.util.texture.TextureIO;
 
 public class SimpleChar extends SimpleSquare {
 	static volatile Texture fontTexture;
-	static volatile boolean loaded = false;
 	static volatile Map<String, Point2D> charPos;
 	
 	double[] ta; //texture top left
@@ -34,10 +33,7 @@ public class SimpleChar extends SimpleSquare {
 		this.character = c;
 		if (charPos == null)
 			initHashMap();
-		if  (loaded = false)
-		{
-			init();
-		}
+	
 		
 		ta = new double[] {getLeftX(c), getTopY(c), 1};
 		tb = new double[] {getRightX(c), getTopY(c), 1};
@@ -45,11 +41,9 @@ public class SimpleChar extends SimpleSquare {
 		td = new double[] {getRightX(c), getBottomY(c), 1};						
 	}
 	
-	public void init() {
-		
-		if (loaded == false)
-		{
-			loaded = true;
+	@Override
+	public synchronized void init(GL2 gl) {
+		if (fontTexture == null) {
 			GLProfile glProfile = GLProfile.getDefault(); 
 	        try {
 	            InputStream stream = getClass().getClassLoader().getResource("com/dapper/engine/resources/fontset.png").openStream();
@@ -61,6 +55,7 @@ public class SimpleChar extends SimpleSquare {
 	            System.exit(1);
 	        }
 		}
+	
 	}	
 	
 	private Point2D getPoint(int x, int y)
@@ -205,8 +200,7 @@ public class SimpleChar extends SimpleSquare {
     		double[] B = Matrix.multiply(finalTransformation, b);
     		double[] C = Matrix.multiply(finalTransformation, c);
     		double[] D = Matrix.multiply(finalTransformation, d);
-    		
-    		init();
+   
        	 	fontTexture.enable(gl);
     	    fontTexture.bind(gl);
     	    gl.glEnable(GL.GL_BLEND);

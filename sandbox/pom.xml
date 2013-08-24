@@ -32,7 +32,13 @@
 		<junit.version>4.11</junit.version>
 
 	</properties>
-	
+	<repositories>
+		<repository>
+	        <id>java.net2</id>
+	        <name>Java.net</name>
+	        <url>https://oss.sonatype.org/content/repositories/java.net2</url>
+	     </repository>
+	</repositories>
 	<dependencies>
 	<!-- Logging -->
 		<dependency>
@@ -101,15 +107,25 @@
         
         <!-- project dependencies -->
         <dependency>
-		        	<groupId>com.dapper</groupId>
-		        	<artifactId>dapper-data</artifactId>
-		        	<version>${parent.version}</version>
-		        </dependency>
-		        <dependency>
+        	<groupId>com.dapper</groupId>
+        	<artifactId>dapper-data</artifactId>
+        	<version>${parent.version}</version>
+        </dependency>
+        <dependency>
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>aspectjrt</artifactId>
 		    <version>1.6.12</version>
 		</dependency>
+		<dependency>
+	        <groupId>com.projectdarkstar.ext.net.java.dev.jogl</groupId>
+	        <artifactId>jogl</artifactId>
+	        <version>1.1.1</version>
+      </dependency>
+         <dependency>
+        	<groupId>com.dapper</groupId>
+        	<artifactId>dapper-engine</artifactId>
+        	<version>${parent.version}</version>
+        </dependency>
 	</dependencies>	
 	<build>
 		<plugins>

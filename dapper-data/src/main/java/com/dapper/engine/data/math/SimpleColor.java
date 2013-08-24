@@ -48,13 +48,13 @@ public class SimpleColor extends Vector4D{
     public final static SimpleColor clear = new SimpleColor(0,0,0,0);
 
     public double getRed() {
-        return (A * 255);
+        return (A );
     }
     public double getGreen() {
-        return (B * 255);
+        return (B );
     }
     public double getBlue() {
-        return (C * 255);
+        return (C );
     }
     public double getAlpha() {
         return (D * 255);

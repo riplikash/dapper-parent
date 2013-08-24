@@ -7,6 +7,7 @@ public class DapperUtil {
 	        long factor = (long) Math.pow(10, places);
 	        value = value * factor;
 	        long tmp = Math.round(value);
+	        System.out.println((double)tmp/factor);
 	        return (double) tmp / factor;
 	    }
 }

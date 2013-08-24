@@ -1,7 +1,5 @@
 package com.dapper.a_star.objects;
 
-import javax.media.opengl.GL2;
-
 import com.dapper.engine.data.math.Matrix;
 import com.dapper.engine.data.math.SimpleColor;
 import com.dapper.engine.data.objects.DapperObject;
@@ -14,13 +12,8 @@ public class AStarModule extends DapperObject {
 		super();
 		board = new GridBoard(.25, .25, .75, .75, 0, SimpleColor.LIGHT_GREY);
 		grid = board.getGrid();
-		this.pos = Matrix.identity(3);
+		children.add(board);
 	}
-	@Override
-	public void render(GL2 gl, double[][] pos) {
-		board.render(gl, getTransformedPosition(pos));				
-	}
-
 	public void click(int x, int y) {
 		grid.grid[x][y].toggle();		
 	}

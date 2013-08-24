@@ -5,7 +5,6 @@ import java.util.Queue;
 import javax.media.opengl.GLAutoDrawable;
 
 import com.jogamp.newt.event.InputEvent;
-import com.jogamp.newt.event.KeyListener;
 
 public interface DapperControlInterface {
 	public void init();
