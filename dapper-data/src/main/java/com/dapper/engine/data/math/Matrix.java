@@ -204,9 +204,9 @@ public class Matrix {
 	public static double[][] new2DPosition(double x, double y, double scaleX,
 			double scaleY, double rotation) {
 		double[][] rt = identity(3);
-		rt = multiply(rt, Matrix.rotation(rotation));
 		rt = multiply(rt, Matrix.translation(x, y));
 		rt = multiply(rt, Matrix.scale(scaleX, scaleY));
+		rt = multiply(rt, Matrix.rotation(rotation));
 		return rt;
 	}
     

@@ -26,17 +26,16 @@ public class SimpleSquare extends DapperObject {
 		double[] B = Matrix.multiply(finalTransformation, b);
 		double[] C = Matrix.multiply(finalTransformation, c);
 		double[] D = Matrix.multiply(finalTransformation, d);
-		
-		gl.glBegin(GL.GL_TRIANGLES);
+		gl.glPolygonMode(GL2.GL_FRONT, GL2.GL_FILL);
+		gl.glBegin(GL2.GL_POLYGON);
         gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
-
-            gl.glVertex2d(A[0],A[1]);
-            gl.glVertex2d(B[0],B[1]);
-            gl.glVertex2d(C[0],C[1]);
-            
-            gl.glVertex2d(C[0],C[1]);
-            gl.glVertex2d(B[0],B[1]);
-            gl.glVertex2d(D[0],D[1]);
+        gl.glVertex3d(C[0],C[1], -1);
+        gl.glVertex3d(B[0],B[1], -1);    
+        gl.glVertex3d(A[0],A[1], -1);
+      
+        gl.glVertex3d(D[0],D[1],1);
+        gl.glVertex3d(B[0],B[1],1);
+        gl.glVertex3d(C[0],C[1],1);
 
         gl.glEnd();
 	}

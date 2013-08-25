@@ -1,4 +1,4 @@
-package org.sandbox;
+package org.sandbox.expansiveDemo.demo;
 
 import static com.jogamp.newt.event.KeyEvent.VK_DOWN;
 import static com.jogamp.newt.event.KeyEvent.VK_ESCAPE;
@@ -48,6 +48,7 @@ public class GameEngine implements DapperGameEngineInterface
 	public void init() {
 		
 		scene.addChild(new DapperDrawingBasics());
+		
 	}
 	
 	
@@ -137,8 +138,6 @@ public class GameEngine implements DapperGameEngineInterface
 		
 	}
 	
-	
-	
 	public enum EventType { MOUSE, KEY, WINDOW, MONITOR, INVALID }
 	
 	private EventType eventType(InputEvent e) {
@@ -155,7 +154,6 @@ public class GameEngine implements DapperGameEngineInterface
 		return EventType.INVALID;
 	}
 	
-
 	@Override
 	public void dispose() {
 		log.info("Disposing of DefaultGameEngine");

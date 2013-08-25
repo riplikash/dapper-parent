@@ -1,4 +1,4 @@
-package com.dapper.engine.default_implementations;
+package org.sandbox.dapper.picking;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
@@ -22,8 +22,8 @@ import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jogamp.opengl.util.texture.Texture;
 
-public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
-	private static final Logger log = LoggerFactory.getLogger(DefaultGraphicsEngine.class);
+public class PickingGraphicsEngine implements DapperGraphicsEngineInterface{
+	private static final Logger log = LoggerFactory.getLogger(PickingGraphicsEngine.class);
 	@Autowired
 	public 
 	GLEventListener dapperEngine;
@@ -47,7 +47,7 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
     protected FPSAnimator fpsAnimator;
 	
      
-    public DefaultGraphicsEngine() {    	 
+    public PickingGraphicsEngine() {    	 
  		super();
  		log.info("constructing graphics engine");
  		
@@ -55,7 +55,10 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Override
 	public void init(GLAutoDrawable drawable) {
 		log.info("Initializing graphics engine");
-		 GL2 gl = drawable.getGL().getGL2();
+		GL2 gl = drawable.getGL().getGL2();
+		gl.glEnable(GL2.GL_CULL_FACE);
+		gl.glEnable(GL2.GL_DEPTH_TEST);
+		gl.glEnable(GL2.GL_NORMALIZE);
 
 	      // Be carefull with debug, it can cause errors.
 	      //drawable.setGL( new DebugGL(drawable.getGL() ));
@@ -67,19 +70,19 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	      reshape( drawable, 0, 0, windowWidth, windowHeight );
 
 	      gl.glClearColor( 0f, 0f, 0f, 0.0f );
-	      //gl.glClearColor( 1f, 1f, 1f, 0.0f );
+//	      gl.glClearColor( 1f, 1f, 1f, 0.0f );
 
 	      // Really Nice Perspective Calculations
-	      //gl.glHint(GL.GL_PERSPECTIVE_CORRECTION_HINT, GL.GL_NICEST);  
+	      gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST);  
 	      // GL.GL_FRONT[_AND_BACK], GL.GL_LINE, GL.GL_FILL
-	      gl.glPolygonMode( GL2.GL_FRONT_AND_BACK, GL2.GL_FILL );
+//	      gl.glPolygonMode( GL2.GL_FRONT_AND_BACK, GL2.GL_LINE );
 
 //	      gl.glEnable( GL2.GL_DEPTH_TEST );
 	      gl.glDepthFunc(GL2.GL_LEQUAL);
 //	      gl.glEnable( GL2.GL_AUTO_NORMAL );
 //	      gl.glEnable(GL2.GL_NORMALIZE);
-	      gl.glShadeModel( GL2.GL_FLAT );
-//	      gl.glShadeModel( GL2.GL_SMOOTH );
+//	      gl.glShadeModel( GL2.GL_FLAT );
+	      gl.glShadeModel( GL2.GL_SMOOTH );
 	      
 	    
 	      root.init(gl);
@@ -124,6 +127,10 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width,
 			int height) {
+	    GL2 gl = drawable.getGL().getGL2();
+	    gl.glViewport(0, 0, width, height);
+	    gl.glMatrixMode(GL2.GL_PROJECTION);
+	    gl.glLoadIdentity();
 			log.info("reshaping graphics engine");
 		
 	}
@@ -131,8 +138,9 @@ public class DefaultGraphicsEngine implements DapperGraphicsEngineInterface{
 	public void render(GLAutoDrawable drawable) {
 		
 		gl = drawable.getGL().getGL2();
-		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+		gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 		root.render(gl);
+		gl.glFlush();
 
 	}
 

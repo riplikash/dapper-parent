@@ -209,19 +209,20 @@ public class SimpleChar extends SimpleSquare {
     		gl.glBegin(GL.GL_TRIANGLES);
 	            gl.glColor3d(color.getRed(), color.getGreen(), color.getBlue());
 	            
-	            gl.glTexCoord2d(ta[0],ta[1]);
-	            gl.glVertex2d(A[0],A[1]);	            
+	            gl.glTexCoord2d(tc[0],tc[1]);
+	            gl.glVertex2d(C[0],C[1]);
 	            gl.glTexCoord2d(tb[0],tb[1]);
 	            gl.glVertex2d(B[0],B[1]);	            
-	            gl.glTexCoord2d(tc[0],tc[1]);
-	            gl.glVertex2d(C[0],C[1]);
+	            gl.glTexCoord2d(ta[0],ta[1]);
+	            gl.glVertex2d(A[0],A[1]);	            
 	            
-	            gl.glTexCoord2d(tc[0],tc[1]);
-	            gl.glVertex2d(C[0],C[1]);
-	            gl.glTexCoord2d(tb[0],tb[1]);
-	            gl.glVertex2d(B[0],B[1]);
+	            
 	            gl.glTexCoord2d(td[0],td[1]);
 	            gl.glVertex2d(D[0],D[1]);
+	            gl.glTexCoord2d(tb[0],tb[1]);
+	            gl.glVertex2d(B[0],B[1]);
+	            gl.glTexCoord2d(tc[0],tc[1]);
+	            gl.glVertex2d(C[0],C[1]);
 
             gl.glEnd();
             fontTexture.disable(gl);

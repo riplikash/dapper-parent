@@ -204,7 +204,7 @@ glWindow.addGLEventListener( this );
       //gl.glShadeModel( GL.GL_FLAT );
       gl.glShadeModel( GL2.GL_SMOOTH );
       
-      //drawingBasics.initAliasingAndFog( gl, true, false );
+      drawingBasics.initAliasingAndFog( gl, true, false );
       //blend.init( gl );
       //light.init( gl );
       //font.init( gl );      

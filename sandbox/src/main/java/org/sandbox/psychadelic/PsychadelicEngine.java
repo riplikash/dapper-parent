@@ -40,21 +40,24 @@ public class PsychadelicEngine implements DapperGameEngineInterface {
 
 	public PsychadelicEngine() {
 		count = System.currentTimeMillis();
-		wait = 100;
+		wait = 1;
 	}
 	
 	@Override
 	public void update() {
-//		a.inc();
-//		b.inc();
-//		c.inc();
-//		d.inc();
+		
 		long newCount = System.currentTimeMillis();
 		if (newCount-count >= wait)
 		{
 			count = newCount;
 			if (!pause)
+			{
 				e.inc();
+//				a.inc();
+//				b.inc();
+//				c.inc();
+//				d.inc();
+			}
 			Queue<InputEvent> queue = controlInterface.getCommands();
 			while (queue.size() > 0)
 			{
@@ -121,12 +124,12 @@ public class PsychadelicEngine implements DapperGameEngineInterface {
           case VK_UP:
         	  
 //        	  player.move(0,.1);        	  
-        	  NestedBox.ty -= .001;
+        	  NestedBox.ty += .001;
         	  hud.updateTy(NestedBox.ty);
               break;
           case VK_DOWN:
 //        	  player.move(0,-.1);
-        	  NestedBox.ty += .001;
+        	  NestedBox.ty -= .001;
         	  hud.updateTy(NestedBox.ty);
               break;
           case VK_LEFT:
@@ -156,6 +159,19 @@ public class PsychadelicEngine implements DapperGameEngineInterface {
 //        	  player.skew(-5, 0.0);
         	  NestedBox.sx -= .005;
         	  hud.updateSx(NestedBox.sx);
+        	  break;
+          case VK_F:
+//        	  player.skew(-5, 0.0);
+        	  NestedBox.sx -= .005;
+        	  NestedBox.sy -= .005;
+        	  hud.updateSx(NestedBox.sx);
+        	  hud.updateSy(NestedBox.sy);
+        	  break;
+          case VK_G:
+        	  NestedBox.sx += .005;
+        	  NestedBox.sy += .005;
+        	  hud.updateSx(NestedBox.sx);
+        	  hud.updateSy(NestedBox.sy);
         	  break;
           case VK_S:
 //        	  player.skew(0.0, -5);
@@ -227,8 +243,8 @@ public class PsychadelicEngine implements DapperGameEngineInterface {
 //		b = new NestedBoxTest(.5, -.5, .75, .75, 0);
 //		c = new NestedBoxTest(-.5, .5, .75, .75, 0);
 //		d = new NestedBoxTest(.5, .5, .75, .75, 0);
-		NestedBox.color1 = new SimpleColor(1,0,0);
-		NestedBox.color2 = new SimpleColor(0,1,0);
+		NestedBox.color1 = new SimpleColor(.75,.5,.85);
+		NestedBox.color2 = new SimpleColor(.4,0,0);
 		NestedBox.color3 = new SimpleColor(0,0,1);
 		e = new NestedBoxTest(0,0, 3, 3, 0);
 		scene.addChild(e);
@@ -238,7 +254,7 @@ public class PsychadelicEngine implements DapperGameEngineInterface {
 //		scene.addChild(b);
 //		scene.addChild(c);
 //		scene.addChild(d);
-		
+//		
 		
 	}
 //	NestedBoxTest a;

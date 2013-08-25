@@ -1,4 +1,4 @@
-package org.sandbox;
+package org.sandbox.expansiveDemo.demo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
