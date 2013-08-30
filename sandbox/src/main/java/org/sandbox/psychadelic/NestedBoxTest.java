@@ -27,7 +27,7 @@ public class NestedBoxTest extends DapperObject {
 		NestedBox current;
 		addChild(next);
 		first = next;
-		for (int i = 0; i < 600; i++)
+		for (int i = 0; i < 100; i++)
 		{	
 			current = next;
 			next  = new NestedBox(current.getNextColor());

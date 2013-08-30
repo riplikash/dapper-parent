@@ -112,6 +112,11 @@
         	<version>${parent.version}</version>
         </dependency>
         <dependency>
+        	<groupId>com.dapper</groupId>
+        	<artifactId>dapper-engine</artifactId>
+        	<version>${parent.version}</version>
+        </dependency>
+        <dependency>
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>aspectjrt</artifactId>
 		    <version>1.6.12</version>
@@ -121,12 +126,8 @@
 	        <artifactId>jogl</artifactId>
 	        <version>1.1.1</version>
       </dependency>
-         <dependency>
-        	<groupId>com.dapper</groupId>
-        	<artifactId>dapper-engine</artifactId>
-        	<version>${parent.version}</version>
-        </dependency>
-	</dependencies>	
+   	</dependencies>	
+
 	<build>
 		<plugins>
 			<plugin>

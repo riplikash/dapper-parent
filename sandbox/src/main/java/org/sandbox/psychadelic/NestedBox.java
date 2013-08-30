@@ -16,8 +16,8 @@ public class NestedBox extends SimpleSquare {
 	}
 	public static double tx = 0;
 	public static double ty = 0;
-	public static double sx = .991;
-	public static double sy = .991;
+	public static double sx = .96;
+	public static double sy = .96;
 	public static double rot = 0;
 	public static double defaultTx = 0;
 	public static double defaultTy = 0;
